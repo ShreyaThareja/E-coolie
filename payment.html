@@ -1,0 +1,1474 @@
+<?php include 'bookcon.php'?>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Booking</title>
+  <link rel="stylesheet" href="C:\xampp\htdocs\payment.css">
+  <style>#pay{align:right;padding:140px; background-image:url(cools.jpg);background-size:contain;background-position:top;background-repeat:100%;}
+#form-group{padding:100px}</style>
+<style>
+		.header-bg h3{margin:7px 0; font-size: 17px;}
+		.header-name span a i {color: #fff; padding-right: 20px;}
+
+
+#btn-des{
+	color:#fff;
+	background-color: #d9534f;
+	padding:10px 17px;
+	border-radius: 0px;
+}
+.header-bg h3 { float: left; color:#000; }
+
+.header-bg h3 + span {
+    margin: 13px;
+    display: block;
+    float: left;
+}
+.header-bg {
+    background-color: #fbda0a;
+    min-height: 50px;
+    color: #ffffff;
+}
+.content-left{
+	background:#ececec!important;
+}
+.content-right{
+	overflow-y:scroll;
+	padding:20px 20px 60px 20px;
+}
+input[type="date"].form-control, input[type="time"].form-control, input[type="datetime-local"].form-control, input[type="month"].form-control { line-height: 18px; }
+#hide-flow{
+	overflow: hidden!important;
+}
+#map-canvas{ max-height: 620px;
+display: flex;}
+.text-danger{
+	font-size:14px;
+}
+.form-control{
+	font-size:13px;
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+	font-size:15px;
+}
+.padding-disable{
+	padding:0px;
+}
+#priceS{
+	font-size:16px;
+}
+.text-heavy{
+	font-size:16px;
+	vertical-align: baseline;
+	margin-top: 6px;
+}
+.select2-results__options li{
+	font-size: 14px;
+}
+.select2-container--default{
+	width:100%!important;
+}
+
+.btn-success{
+	background-color: #4CAF50; /* Green */
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+   <div id=pay>  </div> 
+  
+     
+     <br>
+     <form id="wrapped" method="POST">
+					<label class="text-danger">Train Number *</label>
+          <select name="train">
+          <option>Select Train Name/Number</option> 
+																			<option value="54540-AMBALA DELHI">54540-AMBALA DELHI</option>
+																			<option value="12004-NDLS-LKO SHA">12004-NDLS-LKO SHA</option>
+																			<option value="12012-KLK-NDLS SHA">12012-KLK-NDLS SHA</option>
+																			<option value="12015-NDLS-AII SHA">12015-NDLS-AII SHA</option>
+																			<option value="12878-NDLS RNC GBR">12878-NDLS RNC GBR</option>
+																			<option value="13007-U ABHATOOFAN">13007-U ABHATOOFAN</option>
+																			<option value="12625-KERALA  EXPRESS">12625-KERALA  EXPRESS</option>
+																			<option value="12397-MAHABODHI  EXPRESS">12397-MAHABODHI  EXPRESS</option>
+																			<option value="12426-JAT-NDLS RAJ">12426-JAT-NDLS RAJ</option>
+																			<option value="12451-SHRAM SHKTI">12451-SHRAM SHKTI</option>
+																			<option value="64014-SSB-PWL 10 C">64014-SSB-PWL 10 C</option>
+																			<option value="64074-NDLS-PWL 12C">64074-NDLS-PWL 12C</option>
+																			<option value="64092-NZM-NZM EMU">64092-NZM-NZM EMU</option>
+																			<option value="64411-SBB-DLI  EMU">64411-SBB-DLI  EMU</option>
+																			<option value="64462-KKDE-NZM MEM">64462-KKDE-NZM MEM</option>
+																			<option value="64534-PNP-DLI 12CA">64534-PNP-DLI 12CA</option>
+																			<option value="22418-MAHAMANA  EXPRESS">22418-MAHAMANA  EXPRESS</option>
+																			<option value="9005-BCT NDLS BI">9005-BCT NDLS BI</option>
+																			<option value="12206-NANDA DEVI E">12206-NANDA DEVI E</option>
+																			<option value="12276-NDLS-ALD-DUR">12276-NDLS-ALD-DUR</option>
+																			<option value="12350-NDLS BGP   EXPRESS">12350-NDLS BGP   EXPRESS</option>
+																			<option value="12032-ASR-NDLS SHA">12032-ASR-NDLS SHA</option>
+																			<option value="12815-NANDAN KANAN">12815-NANDAN KANAN</option>
+																			<option value="12926-PASCHIM  EXPRESS">12926-PASCHIM  EXPRESS</option>
+																			<option value="12957-SWARNA J RAJ">12957-SWARNA J RAJ</option>
+																			<option value="12615-MAS-NDLS GRA">12615-MAS-NDLS GRA</option>
+																			<option value="12402-MAGADH  EXPRESS">12402-MAGADH  EXPRESS</option>
+																			<option value="12452-SHRAM SHKTI">12452-SHRAM SHKTI</option>
+																			<option value="64018-SSB-NDLS EMU">64018-SSB-NDLS EMU</option>
+																			<option value="64055-PWL-GZB 12CA">64055-PWL-GZB 12CA</option>
+																			<option value="64432-NDLS-GZB EMU">64432-NDLS-GZB EMU</option>
+																			<option value="64471-GZB-PNP MEMU">64471-GZB-PNP MEMU</option>
+																			<option value="14211-AGC  INTERCITY EXPRESS">14211-AGC  INTERCITY EXPRESS</option>
+																			<option value="82651-YPR-SVDK WEE">82651-YPR-SVDK WEE</option>
+																			<option value="54539-DELHI AMBALA">54539-DELHI AMBALA</option>
+																			<option value="12305-KOLKATA RAJD">12305-KOLKATA RAJD</option>
+																			<option value="12006-KLK-NDLS SHA">12006-KLK-NDLS SHA</option>
+																			<option value="12031-NDLS-ASR-SHA">12031-NDLS-ASR-SHA</option>
+																			<option value="12033-CNB NDLS SHT">12033-CNB NDLS SHT</option>
+																			<option value="12626-NDLS-TVC KER">12626-NDLS-TVC KER</option>
+																			<option value="12393-SAMPOORNA KR">12393-SAMPOORNA KR</option>
+																			<option value="64013-PWL-SSB 12CA">64013-PWL-SSB 12CA</option>
+																			<option value="64015-PWL-SSB 12CA">64015-PWL-SSB 12CA</option>
+																			<option value="64071-BVH-NDLS EMU">64071-BVH-NDLS EMU</option>
+																			<option value="64088-NZM-NDLS 10C">64088-NZM-NDLS 10C</option>
+																			<option value="64090-NZM-NZM EMU">64090-NZM-NZM EMU</option>
+																			<option value="64418-DLI-GZB MEMU">64418-DLI-GZB MEMU</option>
+																			<option value="64450-NDLS-GZB LAD">64450-NDLS-GZB LAD</option>
+																			<option value="64463-NDLS-KKDE ME">64463-NDLS-KKDE ME</option>
+																			<option value="64465-NDLS-KKDE ME">64465-NDLS-KKDE ME</option>
+																			<option value="22210-BCT DURONTO">22210-BCT DURONTO</option>
+																			<option value="14258-KASHI V  EXPRESS">14258-KASHI V  EXPRESS</option>
+																			<option value="54411-RE-MTC PASSE">54411-RE-MTC PASSE</option>
+																			<option value="11078-JHELUM  EXPRESS">11078-JHELUM  EXPRESS</option>
+																			<option value="11450-SVDK-JBP  EXPRESS">11450-SVDK-JBP  EXPRESS</option>
+																			<option value="12017-NDLS-DDN SHA">12017-NDLS-DDN SHA</option>
+																			<option value="12034-NDLS CNB SHA">12034-NDLS CNB SHA</option>
+																			<option value="12037-NDLS-LDH SHA">12037-NDLS-LDH SHA</option>
+																			<option value="12046-CDG-NDLS SHA">12046-CDG-NDLS SHA</option>
+																			<option value="12715-NED-ASR SACH">12715-NED-ASR SACH</option>
+																			<option value="64019-PWL-SSB EMU">64019-PWL-SSB EMU</option>
+																			<option value="64420-GZB-DLI-NDLS">64420-GZB-DLI-NDLS</option>
+																			<option value="64427-GZB-NDLS 12C">64427-GZB-NDLS 12C</option>
+																			<option value="64902-GZB-KSV 12CA">64902-GZB-KSV 12CA</option>
+																			<option value="19803-KOTA-SVDK WE">19803-KOTA-SVDK WE</option>
+																			<option value="22126-ASR-NGP AC E">22126-ASR-NGP AC E</option>
+																			<option value="1707-JBP-ATT BI-W">1707-JBP-ATT BI-W</option>
+																			<option value="1708-ATT-JBP BI-W">1708-ATT-JBP BI-W</option>
+																			<option value="15602-NDLS - SCL P">15602-NDLS - SCL P</option>
+																			<option value="12205-NANDA DEVI E">12205-NANDA DEVI E</option>
+																			<option value="12304-POORVA  EXPRESS">12304-POORVA  EXPRESS</option>
+																			<option value="12306-KOLKATA RAJD">12306-KOLKATA RAJD</option>
+																			<option value="11901-MTJ-KKDE  EXPRESS">11901-MTJ-KKDE  EXPRESS</option>
+																			<option value="11902-KKDE-MTJ  EXPRESS">11902-KKDE-MTJ  EXPRESS</option>
+																			<option value="12018-DDN-NDLS SHA">12018-DDN-NDLS SHA</option>
+																			<option value="12043-NDLS-MOGA SH">12043-NDLS-MOGA SH</option>
+																			<option value="12392-SHRAMJEEVI E">12392-SHRAMJEEVI E</option>
+																			<option value="12483-KCVL EXPRESS">12483-KCVL EXPRESS</option>
+																			<option value="12561-SWATANTRTA S">12561-SWATANTRTA S</option>
+																			<option value="64061-PWL-DLI EMU">64061-PWL-DLI EMU</option>
+																			<option value="64078-NDLS-PWL 12C">64078-NDLS-PWL 12C</option>
+																			<option value="64084-NDLS-PWL EMU">64084-NDLS-PWL EMU</option>
+																			<option value="64430-NDLS-GZB">64430-NDLS-GZB</option>
+																			<option value="64437-GZB-DLI 12CA">64437-GZB-DLI 12CA</option>
+																			<option value="64439-GZB-DLI 12CA">64439-GZB-DLI 12CA</option>
+																			<option value="20817-BBS-NDLS VIA">20817-BBS-NDLS VIA</option>
+																			<option value="22462-SHRI SHAKTI">22462-SHRI SHAKTI</option>
+																			<option value="51901-AGC-DLI PASS">51901-AGC-DLI PASS</option>
+																			<option value="12260-SDAH DURONTO">12260-SDAH DURONTO</option>
+																			<option value="12273-HWH NDLS DUR">12273-HWH NDLS DUR</option>
+																			<option value="12002-NDLS - BPL S">12002-NDLS - BPL S</option>
+																			<option value="12030-SWARNA SHATA">12030-SWARNA SHATA</option>
+																			<option value="12044-MOGA-NDLS SH">12044-MOGA-NDLS SH</option>
+																			<option value="16031-MAS-SVDK AND">16031-MAS-SVDK AND</option>
+																			<option value="12875-PURI-NDLS NE">12875-PURI-NDLS NE</option>
+																			<option value="12716-ASR-NED SACH">12716-ASR-NED SACH</option>
+																			<option value="12381-POORVA  EXPRESS">12381-POORVA  EXPRESS</option>
+																			<option value="12436-NDLS - DBRT">12436-NDLS - DBRT</option>
+																			<option value="12554-VAISHALI  EXPRESS">12554-VAISHALI  EXPRESS</option>
+																			<option value="12582-NDLS-MUV-SUP">12582-NDLS-MUV-SUP</option>
+																			<option value="64034-SSB-GZB 10 C">64034-SSB-GZB 10 C</option>
+																			<option value="64089-NZM-NZM EMU">64089-NZM-NZM EMU</option>
+																			<option value="64409-GZB-NDLS 10C">64409-GZB-NDLS 10C</option>
+																			<option value="64901-KSV-GZB 12CA">64901-KSV-GZB 12CA</option>
+																			<option value="64903-MTJ-GZB 12CA">64903-MTJ-GZB 12CA</option>
+																			<option value="64904-GZB-MTJ 12CA">64904-GZB-MTJ 12CA</option>
+																			<option value="14682-JUC-NDLS  EXPRESS">14682-JUC-NDLS  EXPRESS</option>
+																			<option value="22415-SUPERFAST AC">22415-SUPERFAST AC</option>
+																			<option value="22457-NED-NLDM SUP">22457-NED-NLDM SUP</option>
+																			<option value="22685-YPR-CDG BI-">22685-YPR-CDG BI-</option>
+																			<option value="14004-NDLS-MLDT  EXPRESS">14004-NDLS-MLDT  EXPRESS</option>
+																			<option value="12192-JBP-NDLS SUF">12192-JBP-NDLS SUF</option>
+																			<option value="12230-LUCKNOW MAIL">12230-LUCKNOW MAIL</option>
+																			<option value="11449-JBP-SVDK  EXPRESS">11449-JBP-SVDK  EXPRESS</option>
+																			<option value="12616-G T EXPRESS">12616-G T EXPRESS</option>
+																			<option value="12724-TELANGANA  EXPRESS">12724-TELANGANA  EXPRESS</option>
+																			<option value="18508-ASR-VSKP HIR">18508-ASR-VSKP HIR</option>
+																			<option value="12420-GOMTI  EXPRESS">12420-GOMTI  EXPRESS</option>
+																			<option value="12454-NDLS-RNC">12454-NDLS-RNC</option>
+																			<option value="12473-SARVODAYA  EXPRESS">12473-SARVODAYA  EXPRESS</option>
+																			<option value="12555-GORAKHDHAM E">12555-GORAKHDHAM E</option>
+																			<option value="12559-SHIV GANGA E">12559-SHIV GANGA E</option>
+																			<option value="64057-PWL-GZB 12CA">64057-PWL-GZB 12CA</option>
+																			<option value="64425-GZB-NDLS 12C">64425-GZB-NDLS 12C</option>
+																			<option value="64464-PNP-NDLS MEM">64464-PNP-NDLS MEM</option>
+																			<option value="64472-PNP-GZB MEMU">64472-PNP-GZB MEMU</option>
+																			<option value="19804-SVDK-KOTA WE">19804-SVDK-KOTA WE</option>
+																			<option value="14315-INTERCITY  EXPRESS">14315-INTERCITY  EXPRESS</option>
+																			<option value="15601-SCL - NDLS">15601-SCL - NDLS</option>
+																			<option value="12191-SHRIDHAM SUP">12191-SHRIDHAM SUP</option>
+																			<option value="12217-KERALA S.KRA">12217-KERALA S.KRA</option>
+																			<option value="12001-BPL - NDLS S">12001-BPL - NDLS S</option>
+																			<option value="12055-DDN JANSHATA">12055-DDN JANSHATA</option>
+																			<option value="12058-NDLS JANSHTB">12058-NDLS JANSHTB</option>
+																			<option value="12138-PUNJAB MAIL">12138-PUNJAB MAIL</option>
+																			<option value="12877-RNC-NDLS GBR">12877-RNC-NDLS GBR</option>
+																			<option value="12382-POORVA  EXPRESS">12382-POORVA  EXPRESS</option>
+																			<option value="12460-ASR-NDLS  EXPRESS">12460-ASR-NDLS  EXPRESS</option>
+																			<option value="12472-SWARAJ  EXPRESS">12472-SWARAJ  EXPRESS</option>
+																			<option value="12565-BIHAR SAMPAR">12565-BIHAR SAMPAR</option>
+																			<option value="64017-PWL-SSB 12CA">64017-PWL-SSB 12CA</option>
+																			<option value="64434-DLI-GZB 12CA">64434-DLI-GZB 12CA</option>
+																			<option value="64466-PNP-NDLS MEM">64466-PNP-NDLS MEM</option>
+																			<option value="19308-CDG  INDB  E">19308-CDG  INDB  E</option>
+																			<option value="22412-NDLS-NHLN AC">22412-NDLS-NHLN AC</option>
+																			<option value="22455-SNSI-KLK SUP">22455-SNSI-KLK SUP</option>
+																			<option value="22823-BBS-NDLS RAJ">22823-BBS-NDLS RAJ</option>
+																			<option value="14212-AGC  INTERCITY EXPRESS">14212-AGC  INTERCITY EXPRESS</option>
+																			<option value="12281-BBS-NDLS DUR">12281-BBS-NDLS DUR</option>
+																			<option value="12313-SDAH RAJDHAN">12313-SDAH RAJDHAN</option>
+																			<option value="12038-LDH-NDLS SHA">12038-LDH-NDLS SHA</option>
+																			<option value="12137-PUNJAB MAIL">12137-PUNJAB MAIL</option>
+																			<option value="16032-SVDK-MAS AND">16032-SVDK-MAS AND</option>
+																			<option value="12825-RNC NDLS SAM">12825-RNC NDLS SAM</option>
+																			<option value="19024-FZR BCT JANT">19024-FZR BCT JANT</option>
+																			<option value="12440-NDLS RNC RAJ">12440-NDLS RNC RAJ</option>
+																			<option value="12459-ASR-NDLS  EXPRESS">12459-ASR-NDLS  EXPRESS</option>
+																			<option value="12502-POORVATTAR S">12502-POORVATTAR S</option>
+																			<option value="12562-SWATANTRTA S">12562-SWATANTRTA S</option>
+																			<option value="64031-GZB-SSB 12CA">64031-GZB-SSB 12CA</option>
+																			<option value="64052-GZB-PWL 12CA">64052-GZB-PWL 12CA</option>
+																			<option value="19307-CHANDIGARH E">19307-CHANDIGARH E</option>
+																			<option value="12203-GARIB RATH">12203-GARIB RATH</option>
+																			<option value="12236-NDLS-GHY RAJ">12236-NDLS-GHY RAJ</option>
+																			<option value="12259-NDLS DURONTO">12259-NDLS DURONTO</option>
+																			<option value="12314-SDAH RAJDHAN">12314-SDAH RAJDHAN</option>
+																			<option value="12040-NDLS-KGM SHA">12040-NDLS-KGM SHA</option>
+																			<option value="12826-NDLS RNC SAM">12826-NDLS RNC SAM</option>
+																			<option value="18507-VSKP-ASR HIR">18507-VSKP-ASR HIR</option>
+																			<option value="12415-IND NZM  EXPRESS">12415-IND NZM  EXPRESS</option>
+																			<option value="12422-ASR-NED SUPE">12422-ASR-NED SUPE</option>
+																			<option value="12442-NDLS-BSP">12442-NDLS-BSP</option>
+																			<option value="12501-POORVATTAR S">12501-POORVATTAR S</option>
+																			<option value="12523-NJP-NDLS BI-">12523-NJP-NDLS BI-</option>
+																			<option value="12581-MUV-NDLS-SUP">12581-MUV-NDLS-SUP</option>
+																			<option value="64016-SSB-PWL EMU">64016-SSB-PWL EMU</option>
+																			<option value="64091-HNZM-HNZM EM">64091-HNZM-HNZM EM</option>
+																			<option value="64470-PNP-NDLS LAD">64470-PNP-NDLS LAD</option>
+																			<option value="64908-SSB-BVH-PWL">64908-SSB-BVH-PWL</option>
+																			<option value="64910-SSB-MTJ 12CA">64910-SSB-MTJ 12CA</option>
+																			<option value="20818-NDLS-BBS VIA">20818-NDLS-BBS VIA</option>
+																			<option value="82652-SVDK-YPR WEE">82652-SVDK-YPR WEE</option>
+																			<option value="12235-GHY-NDLS RAJ">12235-GHY-NDLS RAJ</option>
+																			<option value="12039-KGM-NDLS SHA">12039-KGM-NDLS SHA</option>
+																			<option value="12056-NEWDELHI JAN">12056-NEWDELHI JAN</option>
+																			<option value="12057-NDLS-NLDM- J">12057-NDLS-NLDM- J</option>
+																			<option value="64912-ROK-NDLS MEM">64912-ROK-NDLS MEM</option>
+																			<option value="12920-MALWA  EXPRESS">12920-MALWA  EXPRESS</option>
+																			<option value="12391-SHRAMJEEVI E">12391-SHRAMJEEVI E</option>
+																			<option value="12394-SAMPOORNKRAN">12394-SAMPOORNKRAN</option>
+																			<option value="12398-MAHABODHI  EXPRESS">12398-MAHABODHI  EXPRESS</option>
+																			<option value="12435-DBRT - NDLS">12435-DBRT - NDLS</option>
+																			<option value="12471-SWARAJ  EXPRESS">12471-SWARAJ  EXPRESS</option>
+																			<option value="12477-JAM SVDK  EXPRESS">12477-JAM SVDK  EXPRESS</option>
+																			<option value="12560-SHIVGANGA">12560-SHIVGANGA</option>
+																			<option value="64011-PWL-SSB 10 C">64011-PWL-SSB 10 C</option>
+																			<option value="64032-SSB-GZB 12CA">64032-SSB-GZB 12CA</option>
+																			<option value="64097-NDLS-SSB 10">64097-NDLS-SSB 10</option>
+																			<option value="64114-SSB-ALJN 12C">64114-SSB-ALJN 12C</option>
+																			<option value="64423-GZB-NDLS EMU">64423-GZB-NDLS EMU</option>
+																			<option value="22417-MAHAMANA  EXPRESS">22417-MAHAMANA  EXPRESS</option>
+																			<option value="9006-NDLS BCT BI">9006-NDLS BCT BI</option>
+																			<option value="54002-ROHTAK TILAK">54002-ROHTAK TILAK</option>
+																			<option value="12218-KERALA S.KRA">12218-KERALA S.KRA</option>
+																			<option value="12274-HWH DURONTO">12274-HWH DURONTO</option>
+																			<option value="12029-SWARNA SHATA">12029-SWARNA SHATA</option>
+																			<option value="12621-MAS-NDLS TAM">12621-MAS-NDLS TAM</option>
+																			<option value="19023-FZR JANATA E">19023-FZR JANATA E</option>
+																			<option value="12401-MAGADH  EXPRESS">12401-MAGADH  EXPRESS</option>
+																			<option value="12418-PRAYAG RAJ E">12418-PRAYAG RAJ E</option>
+																			<option value="12446-UTTAR SMPRK">12446-UTTAR SMPRK</option>
+																			<option value="12498-SHANE PUNJAB">12498-SHANE PUNJAB</option>
+																			<option value="64012-SSB-PWL 12CA">64012-SSB-PWL 12CA</option>
+																			<option value="64077-PWL-NDLS EMU">64077-PWL-NDLS EMU</option>
+																			<option value="64095-NDLS-SSB 10C">64095-NDLS-SSB 10C</option>
+																			<option value="64417-GZB-DLI MEMU">64417-GZB-DLI MEMU</option>
+																			<option value="64421-GZB-NDLS 12C">64421-GZB-NDLS 12C</option>
+																			<option value="64424-NDLS-GZB EMU">64424-NDLS-GZB EMU</option>
+																			<option value="64461-NZM KKDE MEM">64461-NZM KKDE MEM</option>
+																			<option value="64567-BSC-TKJ PASS">64567-BSC-TKJ PASS</option>
+																			<option value="64911-NDLS-ROK MEM">64911-NDLS-ROK MEM</option>
+																			<option value="22812-NDLS-BBS RAJ">22812-NDLS-BBS RAJ</option>
+																			<option value="14257-K V  EXPRESS">14257-K V  EXPRESS</option>
+																			<option value="14323-ROK  INTERCITY EXPRESS">14323-ROK  INTERCITY EXPRESS</option>
+																			<option value="54412-MTC-RE PASSE">54412-MTC-RE PASSE</option>
+																			<option value="12302-KOLKATA RAJD">12302-KOLKATA RAJD</option>
+																			<option value="18215-DURG - JAT E">18215-DURG - JAT E</option>
+																			<option value="18216-JAT - DURG E">18216-JAT - DURG E</option>
+																			<option value="12816-NANDAN KANAN">12816-NANDAN KANAN</option>
+																			<option value="16687-MAQ-SVDK NAV">16687-MAQ-SVDK NAV</option>
+																			<option value="12417-PRAYAG RAJ E">12417-PRAYAG RAJ E</option>
+																			<option value="12419-GOMTI  EXPRESS">12419-GOMTI  EXPRESS</option>
+																			<option value="12423-DBRT-NDLS RA">12423-DBRT-NDLS RA</option>
+																			<option value="12439-RNC NDLS RAJ">12439-RNC NDLS RAJ</option>
+																			<option value="12450-GOA SMPRK KR">12450-GOA SMPRK KR</option>
+																			<option value="12485-NED SGNR  EXPRESS">12485-NED SGNR  EXPRESS</option>
+																			<option value="64053-PWL-GZB 12CA">64053-PWL-GZB 12CA</option>
+																			<option value="64428-NDLS-GZB EMU">64428-NDLS-GZB EMU</option>
+																			<option value="64429-GZB-NDLS 12C">64429-GZB-NDLS 12C</option>
+																			<option value="19565-UTTARANCHAL">19565-UTTARANCHAL</option>
+																			<option value="19566-UTTARANCHAL">19566-UTTARANCHAL</option>
+																			<option value="22404-NDLS-PDY WEE">22404-NDLS-PDY WEE</option>
+																			<option value="14324-NDLS  INTERCITY EXPRESS">14324-NDLS  INTERCITY EXPRESS</option>
+																			<option value="54012-SDLP TKJ PAS">54012-SDLP TKJ PAS</option>
+																			<option value="54473-DLI SRE PASS">54473-DLI SRE PASS</option>
+																			<option value="12204-GRIB RATH">12204-GRIB RATH</option>
+																			<option value="12301-KOLKATA RAJD">12301-KOLKATA RAJD</option>
+																			<option value="12303-POORVA  EXPRESS">12303-POORVA  EXPRESS</option>
+																			<option value="12005-NDLS-KLK- SH">12005-NDLS-KLK- SH</option>
+																			<option value="12876-NDLS-PURI NE">12876-NDLS-PURI NE</option>
+																			<option value="12925-PASCHIM  EXPRESS">12925-PASCHIM  EXPRESS</option>
+																			<option value="12627-SBC-NDLS KAR">12627-SBC-NDLS KAR</option>
+																			<option value="12424-NDLS-DBRT RA">12424-NDLS-DBRT RA</option>
+																			<option value="12484-KCVL EXPRESS">12484-KCVL EXPRESS</option>
+																			<option value="64036-SSB-GZB 12CA">64036-SSB-GZB 12CA</option>
+																			<option value="64075-PWL-NDLS 10C">64075-PWL-NDLS 10C</option>
+																			<option value="64113-KRJ-SSB 12CA">64113-KRJ-SSB 12CA</option>
+																			<option value="64426-NDLS-GZB 12C">64426-NDLS-GZB 12C</option>
+																			<option value="64491-PWL-NDLS LAD">64491-PWL-NDLS LAD</option>
+																			<option value="64492-NDLS-PWL LAD">64492-NDLS-PWL LAD</option>
+																			<option value="22416-NDLS-VSKP AC">22416-NDLS-VSKP AC</option>
+																			<option value="22686-CDG-YPR BI W">22686-CDG-YPR BI W</option>
+																			<option value="14316-INTERCITY  EXPRESS">14316-INTERCITY  EXPRESS</option>
+																			<option value="54474-SAHARANPUR N">54474-SAHARANPUR N</option>
+																			<option value="11077-JHELUM  EXPRESS">11077-JHELUM  EXPRESS</option>
+																			<option value="54001-TILAK BRIDGE">54001-TILAK BRIDGE</option>
+																			<option value="12310-PATNA RAJDHA">12310-PATNA RAJDHA</option>
+																			<option value="16318-SVDK-CAPE HI">16318-SVDK-CAPE HI</option>
+																			<option value="13008-U A TOOFAN E">13008-U A TOOFAN E</option>
+																			<option value="12622-NDLS-MAS TAM">12622-NDLS-MAS TAM</option>
+																			<option value="12801-PURI-NDLS PU">12801-PURI-NDLS PU</option>
+																			<option value="12421-NED-ASR SUPE">12421-NED-ASR SUPE</option>
+																			<option value="12425-NDLS-JAT RAJ">12425-NDLS-JAT RAJ</option>
+																			<option value="64051-PWL-GZB 12CA">64051-PWL-GZB 12CA</option>
+																			<option value="64080-NDLS-PWL 10">64080-NDLS-PWL 10</option>
+																			<option value="64419-NZM-GZB10 CA">64419-NZM-GZB10 CA</option>
+																			<option value="64449-GZB-NDLS LAD">64449-GZB-NDLS LAD</option>
+																			<option value="64905-MTJ-NDLS 12C">64905-MTJ-NDLS 12C</option>
+																			<option value="19805-KOTA-UHP WEE">19805-KOTA-UHP WEE</option>
+																			<option value="22411-NHLN-NDLS AC">22411-NHLN-NDLS AC</option>
+																			<option value="14085-HARYANA  EXPRESS">14085-HARYANA  EXPRESS</option>
+																			<option value="14086-HARYANA  EXPRESS">14086-HARYANA  EXPRESS</option>
+																			<option value="11058-ASR CSMT  EXPRESS">11058-ASR CSMT  EXPRESS</option>
+																			<option value="12229-LUCKNOW MAIL">12229-LUCKNOW MAIL</option>
+																			<option value="12014-ASR-NDLS SHA">12014-ASR-NDLS SHA</option>
+																			<option value="12045-NDLS-CDG SHA">12045-NDLS-CDG SHA</option>
+																			<option value="12048-NEW DELHI SH">12048-NEW DELHI SH</option>
+																			<option value="12919-MALWA  EXPRESS">12919-MALWA  EXPRESS</option>
+																			<option value="12952-MUMBAI RAJDH">12952-MUMBAI RAJDH</option>
+																			<option value="12958-ADI SJ RAJDH">12958-ADI SJ RAJDH</option>
+																			<option value="16688-SVDK-MAQ NAV">16688-SVDK-MAQ NAV</option>
+																			<option value="12445-UTTAR SMPRK">12445-UTTAR SMPRK</option>
+																			<option value="12476-SARVODAYA  EXPRESS">12476-SARVODAYA  EXPRESS</option>
+																			<option value="12478-SVDK- JAMNAG">12478-SVDK- JAMNAG</option>
+																			<option value="12486-SGNR NED  EXPRESS">12486-SGNR NED  EXPRESS</option>
+																			<option value="12566-BIHAR SAMPAR">12566-BIHAR SAMPAR</option>
+																			<option value="64003-NDLS-SNP 12C">64003-NDLS-SNP 12C</option>
+																			<option value="64076-NDLS-PWL 10C">64076-NDLS-PWL 10C</option>
+																			<option value="64082-NDLS-PWL EMU">64082-NDLS-PWL EMU</option>
+																			<option value="64087-NZM-NDLS 10">64087-NZM-NDLS 10</option>
+																			<option value="64109-DKDE-SSB 12C">64109-DKDE-SSB 12C</option>
+																			<option value="64110-NDLS-ALJN 12">64110-NDLS-ALJN 12</option>
+																			<option value="64168-ALJN-PWL EMU">64168-ALJN-PWL EMU</option>
+																			<option value="14681-NDLS-JUC  EXPRESS">14681-NDLS-JUC  EXPRESS</option>
+																			<option value="22125-NGP-ASR AC E">22125-NGP-ASR AC E</option>
+																			<option value="22209-NDLS DURONTO">22209-NDLS DURONTO</option>
+																			<option value="22456-KLK-SNSI SUP">22456-KLK-SNSI SUP</option>
+																			<option value="22458-NLDM-NED SUP">22458-NLDM-NED SUP</option>
+																			<option value="51902-DLI-AGC PASS">51902-DLI-AGC PASS</option>
+																			<option value="12275-ALD-NDLS-DUR">12275-ALD-NDLS-DUR</option>
+																			<option value="12003-LKO-NDLS SHA">12003-LKO-NDLS SHA</option>
+																			<option value="12011-NDLS-KLK SHA">12011-NDLS-KLK SHA</option>
+																			<option value="12047-BHATINDA SHA">12047-BHATINDA SHA</option>
+																			<option value="16317-CAPE-SVDK HI">16317-CAPE-SVDK HI</option>
+																			<option value="12723-TELANGANA  EXPRESS">12723-TELANGANA  EXPRESS</option>
+																			<option value="12441-BSP-NDLS">12441-BSP-NDLS</option>
+																			<option value="12453-RNC-NDLS">12453-RNC-NDLS</option>
+																			<option value="12497-SHANE PUNJAB">12497-SHANE PUNJAB</option>
+																			<option value="12553-VAISHALI  EXPRESS">12553-VAISHALI  EXPRESS</option>
+																			<option value="12556-GORAKHDHAM E">12556-GORAKHDHAM E</option>
+																			<option value="64062-DLI-BVH EMU">64062-DLI-BVH EMU</option>
+																			<option value="64073-KSV-NDLS 12C">64073-KSV-NDLS 12C</option>
+																			<option value="64105-ALJN-DLI 12C">64105-ALJN-DLI 12C</option>
+																			<option value="64167-PWL-ALJN EMU">64167-PWL-ALJN EMU</option>
+																			<option value="64410-DLI-GZB 12CA">64410-DLI-GZB 12CA</option>
+																			<option value="64431-GZB-NDLS EMU">64431-GZB-NDLS EMU</option>
+																			<option value="64433-GZB-NDLS EMU">64433-GZB-NDLS EMU</option>
+																			<option value="64568-TKJ-BSC MEMU">64568-TKJ-BSC MEMU</option>
+																			<option value="22461-SHRI SHAKTI">22461-SHRI SHAKTI</option>
+																			<option value="22824-NDLS-BBS RAJ">22824-NDLS-BBS RAJ</option>
+																			<option value="54011-TKJ SDLP PAS">54011-TKJ SDLP PAS</option>
+																			<option value="11057-AMRITSAR  EXPRESS">11057-AMRITSAR  EXPRESS</option>
+																			<option value="12282-NDLS-BBS DUR">12282-NDLS-BBS DUR</option>
+																			<option value="12309-PATNA RAJDHA">12309-PATNA RAJDHA</option>
+																			<option value="12349-BGP NDLS  EXPRESS">12349-BGP NDLS  EXPRESS</option>
+																			<option value="12013-NDLS-ASR SHA">12013-NDLS-ASR SHA</option>
+																			<option value="12016-AII-NDLS SHA">12016-AII-NDLS SHA</option>
+																			<option value="12951-MUMBAI RAJDH">12951-MUMBAI RAJDH</option>
+																			<option value="12628-NDLS-SBC KAR">12628-NDLS-SBC KAR</option>
+																			<option value="12802-NDLS-PURI PU">12802-NDLS-PURI PU</option>
+																			<option value="12416-INTERCITY  E">12416-INTERCITY  E</option>
+																			<option value="12449-GOA SMPRK K">12449-GOA SMPRK K</option>
+																			<option value="12474-SARVODAYA  EXPRESS">12474-SARVODAYA  EXPRESS</option>
+																			<option value="12475-HAPA JAT  EXPRESS">12475-HAPA JAT  EXPRESS</option>
+																			<option value="12524-NDLS-NJP BI-">12524-NDLS-NJP BI-</option>
+																			<option value="64064-PND-4 EMU">64064-PND-4 EMU</option>
+																			<option value="64415-GZB-NDLS EMU">64415-GZB-NDLS EMU</option>
+																			<option value="64422-NDLS-GZB">64422-NDLS-GZB</option>
+																			<option value="64441-GZB-DLI 12CA">64441-GZB-DLI 12CA</option>
+																			<option value="64443-GZB-DLI 12CA">64443-GZB-DLI 12CA</option>
+																			<option value="64906-GZB-PWL 12CA">64906-GZB-PWL 12CA</option>
+																			<option value="19806-UHP-KOTA WEE">19806-UHP-KOTA WEE</option>
+																			<option value="22403-PDY-NDLS WEE">22403-PDY-NDLS WEE</option>
+																			<option value="22811-BBS-NDLS RAJ">22811-BBS-NDLS RAJ</option>
+																			<option value="14003-MLDT-NDLS  EXPRESS">14003-MLDT-NDLS  EXPRESS</option>
+																			<option value="11046-DIKSHABHUMI">11046-DIKSHABHUMI</option>
+																			<option value="15645-LTT-GHY  EXPRESS">15645-LTT-GHY  EXPRESS</option>
+																			<option value="12370-HW HWH S F E">12370-HW HWH S F E</option>
+																			<option value="12379-JALIANWALA B">12379-JALIANWALA B</option>
+																			<option value="12390-CHENNAI-EGMO">12390-CHENNAI-EGMO</option>
+																			<option value="12454-NDLS-RNC">12454-NDLS-RNC</option>
+																			<option value="18609-RNC LTT  EXPRESS">18609-RNC LTT  EXPRESS</option>
+																			<option value="13238-KOTA - PNBE">13238-KOTA - PNBE</option>
+																			<option value="506-PNBE-PTA FTR">506-PNBE-PTA FTR</option>
+																			<option value="15563-JYG-UDN ANTY">15563-JYG-UDN ANTY</option>
+																			<option value="15601-SCL - NDLS">15601-SCL - NDLS</option>
+																			<option value="15647-LTT-GHY  EXPRESS">15647-LTT-GHY  EXPRESS</option>
+																			<option value="12326-NLDM-KOAA WK">12326-NLDM-KOAA WK</option>
+																			<option value="12877-RNC-NDLS GBR">12877-RNC-NDLS GBR</option>
+																			<option value="12948-AZIMABAD  EXPRESS">12948-AZIMABAD  EXPRESS</option>
+																			<option value="22823-BBS-NDLS RAJ">22823-BBS-NDLS RAJ</option>
+																			<option value="15021-SHALIMAR-GOR">15021-SHALIMAR-GOR</option>
+																			<option value="12382-POORVA  EXPRESS">12382-POORVA  EXPRESS</option>
+																			<option value="12545-KARMBHOOMI E">12545-KARMBHOOMI E</option>
+																			<option value="12577-BAGMATI  EXPRESS">12577-BAGMATI  EXPRESS</option>
+																			<option value="19322-RJPB INDB  EXPRESS">19322-RJPB INDB  EXPRESS</option>
+																			<option value="63237-MGS-ALD MEMU">63237-MGS-ALD MEMU</option>
+																			<option value="13414-FARKKA  EXPRESS">13414-FARKKA  EXPRESS</option>
+																			<option value="14260-LKO-MGS EKAT">14260-LKO-MGS EKAT</option>
+																			<option value="12296-PNBE-SBC SAN">12296-PNBE-SBC SAN</option>
+																			<option value="17609-PNBE-PAU  EXPRESS">17609-PNBE-PAU  EXPRESS</option>
+																			<option value="22824-NDLS-BBS RAJ">22824-NDLS-BBS RAJ</option>
+																			<option value="12453-RNC-NDLS">12453-RNC-NDLS</option>
+																			<option value="22323-KOAA GCT SHA">22323-KOAA GCT SHA</option>
+																			<option value="22351-PPTA - YPR E">22351-PPTA - YPR E</option>
+																			<option value="22352-YPR - PPTA E">22352-YPR - PPTA E</option>
+																			<option value="13202-LTT  RJPB  EXPRESS">13202-LTT  RJPB  EXPRESS</option>
+																			<option value="63225-PNBE-MGS MEM">63225-PNBE-MGS MEM</option>
+																			<option value="63235-BXR-MGS MEMU">63235-BXR-MGS MEMU</option>
+																			<option value="13413-FARAKKA  EXPRESS">13413-FARAKKA  EXPRESS</option>
+																			<option value="15632-GHY BME-BKN">15632-GHY BME-BKN</option>
+																			<option value="12177-CHAMBAL  EXPRESS">12177-CHAMBAL  EXPRESS</option>
+																			<option value="12295-SBC-PPTA SAN">12295-SBC-PPTA SAN</option>
+																			<option value="18104-JALLIANWALAB">18104-JALLIANWALAB</option>
+																			<option value="12395-ZIYARAT  EXPRESS">12395-ZIYARAT  EXPRESS</option>
+																			<option value="64595-MGS-ALD MEMU">64595-MGS-ALD MEMU</option>
+																			<option value="64596-ALD-MGS MEMU">64596-ALD-MGS MEMU</option>
+																			<option value="13151-JAMMU TAWI E">13151-JAMMU TAWI E</option>
+																			<option value="22857-SRC ANVT WEE">22857-SRC ANVT WEE</option>
+																			<option value="15484-SIKKIM MAHAN">15484-SIKKIM MAHAN</option>
+																			<option value="15636-DWARKA  EXPRESS">15636-DWARKA  EXPRESS</option>
+																			<option value="12302-KOLKATA RAJD">12302-KOLKATA RAJD</option>
+																			<option value="12355-ARCHNA  EXPRESS">12355-ARCHNA  EXPRESS</option>
+																			<option value="12816-NANDAN KANAN">12816-NANDAN KANAN</option>
+																			<option value="12820-ANVT-BBS SAM">12820-ANVT-BBS SAM</option>
+																			<option value="22409-GAYA -ANVT G">22409-GAYA -ANVT G</option>
+																			<option value="12367-VIKRAMSHILA">12367-VIKRAMSHILA</option>
+																			<option value="12371-HWH JSM SF E">12371-HWH JSM SF E</option>
+																			<option value="12423-DBRT-NDLS RA">12423-DBRT-NDLS RA</option>
+																			<option value="12439-RNC NDLS RAJ">12439-RNC NDLS RAJ</option>
+																			<option value="54110-MGS - FD PAS">54110-MGS - FD PAS</option>
+																			<option value="13240-KOTA - PNBE">13240-KOTA - PNBE</option>
+																			<option value="63228-MGS-PNBE  ME">63228-MGS-PNBE  ME</option>
+																			<option value="53526-BSB-BRKA PAS">53526-BSB-BRKA PAS</option>
+																			<option value="22858-ANVT SRC WEK">22858-ANVT SRC WEK</option>
+																			<option value="12260-SDAH DURONTO">12260-SDAH DURONTO</option>
+																			<option value="12273-HWH NDLS DUR">12273-HWH NDLS DUR</option>
+																			<option value="12315-ANNANYA   EXPRESS">12315-ANNANYA   EXPRESS</option>
+																			<option value="12319-KOAA-AGC WEE">12319-KOAA-AGC WEE</option>
+																			<option value="17610-PAU-PNBE  EXPRESS">17610-PAU-PNBE  EXPRESS</option>
+																			<option value="12819-BBS-NDLS SAM">12819-BBS-NDLS SAM</option>
+																			<option value="12875-PURI-NDLS NE">12875-PURI-NDLS NE</option>
+																			<option value="12947-AZIMABAD  EXPRESS">12947-AZIMABAD  EXPRESS</option>
+																			<option value="12381-POORVA  EXPRESS">12381-POORVA  EXPRESS</option>
+																			<option value="12396-ZIYARAT  EXPRESS">12396-ZIYARAT  EXPRESS</option>
+																			<option value="12488-ANVT-JBNSUPE">12488-ANVT-JBNSUPE</option>
+																			<option value="19313-INDB RJPB  E">19313-INDB RJPB  E</option>
+																			<option value="22356-CDG - PPTA S">22356-CDG - PPTA S</option>
+																			<option value="82355-PNBE-CSMT SU">82355-PNBE-CSMT SU</option>
+																			<option value="18610-LTT RNC WEEK">18610-LTT RNC WEEK</option>
+																			<option value="63554-BSB ASN PASS">63554-BSB ASN PASS</option>
+																			<option value="14004-NDLS-MLDT  EXPRESS">14004-NDLS-MLDT  EXPRESS</option>
+																			<option value="8618-ANVT RNC SPL">8618-ANVT RNC SPL</option>
+																			<option value="11045-DIKSHABHOOMI">11045-DIKSHABHOOMI</option>
+																			<option value="15547-JYG-LTT JANS">15547-JYG-LTT JANS</option>
+																			<option value="12331-HIMGIRI  EXPRESS">12331-HIMGIRI  EXPRESS</option>
+																			<option value="18312-BSB-SBP BI-W">18312-BSB-SBP BI-W</option>
+																			<option value="13005-AMRITSAR MAI">13005-AMRITSAR MAI</option>
+																			<option value="12742-PNBE-VSG  EXPRESS">12742-PNBE-VSG  EXPRESS</option>
+																			<option value="13049-AMRITSAR  EXPRESS">13049-AMRITSAR  EXPRESS</option>
+																			<option value="13237-PNBE- KOTA">13237-PNBE- KOTA</option>
+																			<option value="13307-GANGASUTLEJ">13307-GANGASUTLEJ</option>
+																			<option value="63295-GAYA-MGS MEM">63295-GAYA-MGS MEM</option>
+																			<option value="12142-PPTA-LTT SF">12142-PPTA-LTT SF</option>
+																			<option value="22912-SHIPRA  EXPRESS">22912-SHIPRA  EXPRESS</option>
+																			<option value="604-PNBE-ASR FTR">604-PNBE-ASR FTR</option>
+																			<option value="15564-UDN-JYG ANTY">15564-UDN-JYG ANTY</option>
+																			<option value="12305-KOLKATA RAJD">12305-KOLKATA RAJD</option>
+																			<option value="12308-JU-HWH SUPFA">12308-JU-HWH SUPFA</option>
+																			<option value="12318-AKAL TAKHAT">12318-AKAL TAKHAT</option>
+																			<option value="12330-SAMPARKRANTI">12330-SAMPARKRANTI</option>
+																			<option value="12357-DURGIANA  EXPRESS">12357-DURGIANA  EXPRESS</option>
+																			<option value="12988-AII SDAH SF">12988-AII SDAH SF</option>
+																			<option value="12393-SAMPOORNA KR">12393-SAMPOORNA KR</option>
+																			<option value="12496-PRATAP  EXPRESS">12496-PRATAP  EXPRESS</option>
+																			<option value="12505-NORTHEAST  EXPRESS">12505-NORTHEAST  EXPRESS</option>
+																			<option value="13167-KOAA-AGC WKL">13167-KOAA-AGC WKL</option>
+																			<option value="13308-GANGASATLUJ">13308-GANGASATLUJ</option>
+																			<option value="63553-ASN BSB PASS">63553-ASN BSB PASS</option>
+																			<option value="13424-AII- BGPWKLY">13424-AII- BGPWKLY</option>
+																			<option value="16359-ERS PATNA  EXPRESS">16359-ERS PATNA  EXPRESS</option>
+																			<option value="16360-PNBE-ERS  EXPRESS">16360-PNBE-ERS  EXPRESS</option>
+																			<option value="12274-HWH DURONTO">12274-HWH DURONTO</option>
+																			<option value="12327-UPASANA  EXPRESS">12327-UPASANA  EXPRESS</option>
+																			<option value="22812-NDLS-BBS RAJ">22812-NDLS-BBS RAJ</option>
+																			<option value="15022-GORAKHPUR-SH">15022-GORAKHPUR-SH</option>
+																			<option value="12362-CSMT- ASANSO">12362-CSMT- ASANSO</option>
+																			<option value="12401-MAGADH  EXPRESS">12401-MAGADH  EXPRESS</option>
+																			<option value="19321-INDB RJPB  EXPRESS">19321-INDB RJPB  EXPRESS</option>
+																			<option value="19421-ADI PNBE  EXPRESS">19421-ADI PNBE  EXPRESS</option>
+																			<option value="13201-RJPB LTT  EXPRESS">13201-RJPB LTT  EXPRESS</option>
+																			<option value="13239-PNBE-KOTA  EXPRESS">13239-PNBE-KOTA  EXPRESS</option>
+																			<option value="13257-JAN SADHARAN">13257-JAN SADHARAN</option>
+																			<option value="13258-JAN SADHARAN">13258-JAN SADHARAN</option>
+																			<option value="14019-AGTL-ANVT SU">14019-AGTL-ANVT SU</option>
+																			<option value="22911-SHIPRA  EXPRESS">22911-SHIPRA  EXPRESS</option>
+																			<option value="3502-ANVT-JSME BI">3502-ANVT-JSME BI</option>
+																			<option value="54267-MGS-BSB PASS">54267-MGS-BSB PASS</option>
+																			<option value="15483-SIKKIM MAHAN">15483-SIKKIM MAHAN</option>
+																			<option value="12310-PATNA RAJDHA">12310-PATNA RAJDHA</option>
+																			<option value="13008-U A TOOFAN E">13008-U A TOOFAN E</option>
+																			<option value="22406-ANVT-BGP GAR">22406-ANVT-BGP GAR</option>
+																			<option value="12801-PURI-NDLS PU">12801-PURI-NDLS PU</option>
+																			<option value="12369-KUMBHA  EXPRESS">12369-KUMBHA  EXPRESS</option>
+																			<option value="12519-LTT-KYQ AC E">12519-LTT-KYQ AC E</option>
+																			<option value="54109-MGS - FD PAS">54109-MGS - FD PAS</option>
+																			<option value="22405-BGP-ANVT GAR">22405-BGP-ANVT GAR</option>
+																			<option value="13009-DOON EXPRESS">13009-DOON EXPRESS</option>
+																			<option value="63293-DOS-MGS MEMU">63293-DOS-MGS MEMU</option>
+																			<option value="12141-LTT-PPTA  EXPRESS">12141-LTT-PPTA  EXPRESS</option>
+																			<option value="53525-BRKA-BSB PAS">53525-BRKA-BSB PAS</option>
+																			<option value="15623-BGKT KYQ WEE">15623-BGKT KYQ WEE</option>
+																			<option value="15631-BME-BKN GHY">15631-BME-BKN GHY</option>
+																			<option value="12150-DNR-PUNE  EXPRESS">12150-DNR-PUNE  EXPRESS</option>
+																			<option value="12178-CHAMBAL  EXPRESS">12178-CHAMBAL  EXPRESS</option>
+																			<option value="12307-HWH-JU  EXPRESS">12307-HWH-JU  EXPRESS</option>
+																			<option value="12328-UPASANA  EXPRESS">12328-UPASANA  EXPRESS</option>
+																			<option value="12333-VIBHUTI  EXPRESS">12333-VIBHUTI  EXPRESS</option>
+																			<option value="12350-NDLS BGP   EXPRESS">12350-NDLS BGP   EXPRESS</option>
+																			<option value="12353-HWH LKU  EXPRESS">12353-HWH LKU  EXPRESS</option>
+																			<option value="12815-NANDAN KANAN">12815-NANDAN KANAN</option>
+																			<option value="12402-MAGADH  EXPRESS">12402-MAGADH  EXPRESS</option>
+																			<option value="22324-GCT KOAA WEE">22324-GCT KOAA WEE</option>
+																			<option value="13119-SDAH DLI   EXPRESS">13119-SDAH DLI   EXPRESS</option>
+																			<option value="3501-JSME-ANVT BI">3501-JSME-ANVT BI</option>
+																			<option value="12149-PUNE-DNR  EXPRESS">12149-PUNE-DNR  EXPRESS</option>
+																			<option value="12316-ANANYA  EXPRESS">12316-ANANYA  EXPRESS</option>
+																			<option value="12334-VIBHUTI  EXPRESS">12334-VIBHUTI  EXPRESS</option>
+																			<option value="12335-BGP-LT(T)  EXPRESS">12335-BGP-LT(T)  EXPRESS</option>
+																			<option value="12361-ASN CSMT  EXPRESS">12361-ASN CSMT  EXPRESS</option>
+																			<option value="12878-NDLS RNC GBR">12878-NDLS RNC GBR</option>
+																			<option value="13007-U ABHATOOFAN">13007-U ABHATOOFAN</option>
+																			<option value="12397-MAHABODHI  EXPRESS">12397-MAHABODHI  EXPRESS</option>
+																			<option value="12578-BAGMATI   EXPRESS">12578-BAGMATI   EXPRESS</option>
+																			<option value="18612-BSB RNC  EXPRESS">18612-BSB RNC  EXPRESS</option>
+																			<option value="13133-SDAH  BSB  EXPRESS">13133-SDAH  BSB  EXPRESS</option>
+																			<option value="13134-BSB SDAH  EXPRESS">13134-BSB SDAH  EXPRESS</option>
+																			<option value="13152-SEALDAH  EXPRESS">13152-SEALDAH  EXPRESS</option>
+																			<option value="63234-MGS-PNBE MEM">63234-MGS-PNBE MEM</option>
+																			<option value="477-FTR TRAIN NO">477-FTR TRAIN NO</option>
+																			<option value="477-FTR TRAIN NO">477-FTR TRAIN NO</option>
+																			<option value="15635-DWARKA  EXPRESS">15635-DWARKA  EXPRESS</option>
+																			<option value="15668-KAMAKHYA-GAN">15668-KAMAKHYA-GAN</option>
+																			<option value="12312-KLK DLI HWH">12312-KLK DLI HWH</option>
+																			<option value="12937-GARBHA  EXPRESS">12937-GARBHA  EXPRESS</option>
+																			<option value="12941-BVC ASANSOL">12941-BVC ASANSOL</option>
+																			<option value="12792-DNR-SC  EXPRESS">12792-DNR-SC  EXPRESS</option>
+																			<option value="12391-SHRAMJEEVI E">12391-SHRAMJEEVI E</option>
+																			<option value="12394-SAMPOORNKRAN">12394-SAMPOORNKRAN</option>
+																			<option value="12398-MAHABODHI  EXPRESS">12398-MAHABODHI  EXPRESS</option>
+																			<option value="12506-NORTHEAST  EXPRESS">12506-NORTHEAST  EXPRESS</option>
+																			<option value="12569-JYG -ANVT GA">12569-JYG -ANVT GA</option>
+																			<option value="12570-ANVT-JYG GAR">12570-ANVT-JYG GAR</option>
+																			<option value="53641-DLN -MGS-PAS">53641-DLN -MGS-PAS</option>
+																			<option value="63264-MGS-PNBE MEM">63264-MGS-PNBE MEM</option>
+																			<option value="63296-MGS-GAYA MEM">63296-MGS-GAYA MEM</option>
+																			<option value="14020-ANVT-AGTL SU">14020-ANVT-AGTL SU</option>
+																			<option value="22914-PATNA BDTS H">22914-PATNA BDTS H</option>
+																			<option value="15624-KYQ BGKT WEE">15624-KYQ BGKT WEE</option>
+																			<option value="12281-BBS-NDLS DUR">12281-BBS-NDLS DUR</option>
+																			<option value="12313-SDAH RAJDHAN">12313-SDAH RAJDHAN</option>
+																			<option value="12324-ANVT HWH BI-">12324-ANVT HWH BI-</option>
+																			<option value="12825-RNC NDLS SAM">12825-RNC NDLS SAM</option>
+																			<option value="12380-JALIANWALA B">12380-JALIANWALA B</option>
+																			<option value="12389-GAYA-CHENNAI">12389-GAYA-CHENNAI</option>
+																			<option value="12440-NDLS RNC RAJ">12440-NDLS RNC RAJ</option>
+																			<option value="12502-POORVATTAR S">12502-POORVATTAR S</option>
+																			<option value="13120-DLI SDAH  EXPRESS">13120-DLI SDAH  EXPRESS</option>
+																			<option value="63238-MGS- ALD MEM">63238-MGS- ALD MEM</option>
+																			<option value="63240-MGS-BXR MEMU">63240-MGS-BXR MEMU</option>
+																			<option value="54272-MGS-ARA  PAS">54272-MGS-ARA  PAS</option>
+																			<option value="15548-LTT-JYG JANS">15548-LTT-JYG JANS</option>
+																			<option value="15648-GHY-LTT  EXPRESS">15648-GHY-LTT  EXPRESS</option>
+																			<option value="15667-GADHIDHAM-KA">15667-GADHIDHAM-KA</option>
+																			<option value="12249-HWH-ANVT YUV">12249-HWH-ANVT YUV</option>
+																			<option value="12282-NDLS-BBS DUR">12282-NDLS-BBS DUR</option>
+																			<option value="12309-PATNA RAJDHA">12309-PATNA RAJDHA</option>
+																			<option value="12322-KOLKATA MAIL">12322-KOLKATA MAIL</option>
+																			<option value="12349-BGP NDLS  EXPRESS">12349-BGP NDLS  EXPRESS</option>
+																			<option value="18103-JALLIANWALA">18103-JALLIANWALA</option>
+																			<option value="22811-BBS-NDLS RAJ">22811-BBS-NDLS RAJ</option>
+																			<option value="12802-NDLS-PURI PU">12802-NDLS-PURI PU</option>
+																			<option value="12444-ANVT-HLZ  EXPRESS">12444-ANVT-HLZ  EXPRESS</option>
+																			<option value="12495-BKN KOAA SUP">12495-BKN KOAA SUP</option>
+																			<option value="63227-PNBE-MGS MEM">63227-PNBE-MGS MEM</option>
+																			<option value="13429-MLDT-ANVT WK">13429-MLDT-ANVT WK</option>
+																			<option value="14003-MLDT-NDLS  EXPRESS">14003-MLDT-NDLS  EXPRESS</option>
+																			<option value="502-RJPB-UMB FTR">502-RJPB-UMB FTR</option>
+																			<option value="54261-MGS-BSB-JNU">54261-MGS-BSB-JNU</option>
+																			<option value="54270-BSB-MGSPASSE">54270-BSB-MGSPASSE</option>
+																			<option value="12259-NDLS DURONTO">12259-NDLS DURONTO</option>
+																			<option value="12314-SDAH RAJDHAN">12314-SDAH RAJDHAN</option>
+																			<option value="12321-HWH MUMBAI M">12321-HWH MUMBAI M</option>
+																			<option value="12329-SAMPARK KRAN">12329-SAMPARK KRAN</option>
+																			<option value="12354-LKU  HWH   EXPRESS">12354-LKU  HWH   EXPRESS</option>
+																			<option value="12817-HTE ANVT  EXPRESS">12817-HTE ANVT  EXPRESS</option>
+																			<option value="12826-NDLS RNC SAM">12826-NDLS RNC SAM</option>
+																			<option value="12938-GARBHA  EXPRESS">12938-GARBHA  EXPRESS</option>
+																			<option value="12942-PARASNATH  EXPRESS">12942-PARASNATH  EXPRESS</option>
+																			<option value="22410-ANVT-GAYA GA">22410-ANVT-GAYA GA</option>
+																			<option value="12501-POORVATTAR S">12501-POORVATTAR S</option>
+																			<option value="12546-KARMBHOOMI E">12546-KARMBHOOMI E</option>
+																			<option value="20501-AGTL - ANVT">20501-AGTL - ANVT</option>
+																			<option value="20502-ANVT - AGTL">20502-ANVT - AGTL</option>
+																			<option value="20818-NDLS-BBS VIA">20818-NDLS-BBS VIA</option>
+																			<option value="19064-DNR UDHNA  E">19064-DNR UDHNA  E</option>
+																			<option value="63226-BSB-PNBE MEM">63226-BSB-PNBE MEM</option>
+																			<option value="63294-MGS-DOS MEMU">63294-MGS-DOS MEMU</option>
+																			<option value="13483-FARAKKA  EXPRESS">13483-FARAKKA  EXPRESS</option>
+																			<option value="14056-BRAHMPUTRA M">14056-BRAHMPUTRA M</option>
+																			<option value="22972-PNBE BDTS SF">22972-PNBE BDTS SF</option>
+																			<option value="15646-GHY-LTT  EXPRESS">15646-GHY-LTT  EXPRESS</option>
+																			<option value="12175-CHAMBAL  EXPRESS">12175-CHAMBAL  EXPRESS</option>
+																			<option value="12176-CHAMBAL  EXPRESS">12176-CHAMBAL  EXPRESS</option>
+																			<option value="12250-ANVT-HWH YUV">12250-ANVT-HWH YUV</option>
+																			<option value="12301-KOLKATA RAJD">12301-KOLKATA RAJD</option>
+																			<option value="12303-POORVA  EXPRESS">12303-POORVA  EXPRESS</option>
+																			<option value="12317-AKAL TAKHT E">12317-AKAL TAKHT E</option>
+																			<option value="12320-AGC-KOAA WEE">12320-AGC-KOAA WEE</option>
+																			<option value="12323-HWH ANVT BI-">12323-HWH ANVT BI-</option>
+																			<option value="12325-KOAA-NANGALD">12325-KOAA-NANGALD</option>
+																			<option value="12332-HIMGIRI  EXPRESS">12332-HIMGIRI  EXPRESS</option>
+																			<option value="12336-LTT-BGP  EXPRESS">12336-LTT-BGP  EXPRESS</option>
+																			<option value="12358-ASR KOAA SUP">12358-ASR KOAA SUP</option>
+																			<option value="12818-ANVT HTE  EXPRESS">12818-ANVT HTE  EXPRESS</option>
+																			<option value="12876-NDLS-PURI NE">12876-NDLS-PURI NE</option>
+																			<option value="12987-SDAH AII  SF">12987-SDAH AII  SF</option>
+																			<option value="12368-VIKRAMSHILA">12368-VIKRAMSHILA</option>
+																			<option value="12372-JSM HWH SF E">12372-JSM HWH SF E</option>
+																			<option value="12424-NDLS-DBRT RA">12424-NDLS-DBRT RA</option>
+																			<option value="12487-JBN-ANVT SUP">12487-JBN-ANVT SUP</option>
+																			<option value="53642-MGS-DLN  PAS">53642-MGS-DLN  PAS</option>
+																			<option value="19314-INDORE  EXPRESS">19314-INDORE  EXPRESS</option>
+																			<option value="18611-RNC BSB  EXPRESS">18611-RNC BSB  EXPRESS</option>
+																			<option value="18631-RNC AII  EXPRESS">18631-RNC AII  EXPRESS</option>
+																			<option value="19063-DANAPUR  EXPRESS">19063-DANAPUR  EXPRESS</option>
+																			<option value="13050-ASR HWH  EXPRESS">13050-ASR HWH  EXPRESS</option>
+																			<option value="63231-PNBE-MGS MEM">63231-PNBE-MGS MEM</option>
+																			<option value="63233-PNBE-BSB MEM">63233-PNBE-BSB MEM</option>
+																			<option value="13423-BGP-AII WKLY">13423-BGP-AII WKLY</option>
+																			<option value="13430-ANVT-MLDT WK">13430-ANVT-MLDT WK</option>
+																			<option value="14055-BRAHMAPUTRA">14055-BRAHMAPUTRA</option>
+																			<option value="22971-BDTS PATNA S">22971-BDTS PATNA S</option>
+																			<option value="504-PNBE-BTI FTR">504-PNBE-BTI FTR</option>
+																			<option value="8617-RNC ANVT SPL">8617-RNC ANVT SPL</option>
+																			<option value="54268-BSB-MGS PASS">54268-BSB-MGS PASS</option>
+																			<option value="54271-ARA-SSM-MGS">54271-ARA-SSM-MGS</option>
+																			<option value="15602-NDLS - SCL P">15602-NDLS - SCL P</option>
+																			<option value="12304-POORVA  EXPRESS">12304-POORVA  EXPRESS</option>
+																			<option value="12306-KOLKATA RAJD">12306-KOLKATA RAJD</option>
+																			<option value="12311-HWH DLIKLK M">12311-HWH DLIKLK M</option>
+																			<option value="12356-ARCHNA  EXPRESS">12356-ARCHNA  EXPRESS</option>
+																			<option value="18311-SBP-BSB BI-W">18311-SBP-BSB BI-W</option>
+																			<option value="13006-ASR HWH MAIL">13006-ASR HWH MAIL</option>
+																			<option value="22805-BBS ANVT WEE">22805-BBS ANVT WEE</option>
+																			<option value="22806-ANVT BBS WEE">22806-ANVT BBS WEE</option>
+																			<option value="12741-VSG-PNBE  EXPRESS">12741-VSG-PNBE  EXPRESS</option>
+																			<option value="12791-SC-DNR  EXPRESS">12791-SC-DNR  EXPRESS</option>
+																			<option value="12392-SHRAMJEEVI E">12392-SHRAMJEEVI E</option>
+																			<option value="12443-HLZ-ANVT  EXPRESS">12443-HLZ-ANVT  EXPRESS</option>
+																			<option value="12520-KYQ-LTT AC E">12520-KYQ-LTT AC E</option>
+																			<option value="19422-PNBE ADI  EXPRESS">19422-PNBE ADI  EXPRESS</option>
+																			<option value="20817-BBS-NDLS VIA">20817-BBS-NDLS VIA</option>
+																			<option value="18632-AII RNC  EXPRESS">18632-AII RNC  EXPRESS</option>
+																			<option value="13010-DOON EXPRESS">13010-DOON EXPRESS</option>
+																			<option value="13168-AGC-KOAA WKL">13168-AGC-KOAA WKL</option>
+																			<option value="13484-FARAKKA  EXPRESS">13484-FARAKKA  EXPRESS</option>
+																			<option value="19168-SABARMATI  EXPRESS">19168-SABARMATI  EXPRESS</option>
+																			<option value="14204-LKO BSB  INTERCITY EXPRESS">14204-LKO BSB  INTERCITY EXPRESS</option>
+																			<option value="17323-UBL-BSB WEEK">17323-UBL-BSB WEEK</option>
+																			<option value="54261-MGS-BSB-JNU">54261-MGS-BSB-JNU</option>
+																			<option value="54109-MGS - FD PAS">54109-MGS - FD PAS</option>
+																			<option value="15160-SARNATH EXP.">15160-SARNATH EXP.</option>
+																			<option value="11034-DBG-PUNE  EXPRESS">11034-DBG-PUNE  EXPRESS</option>
+																			<option value="63554-BSB ASN PASS">63554-BSB ASN PASS</option>
+																			<option value="13120-DLI SDAH  EXPRESS">13120-DLI SDAH  EXPRESS</option>
+																			<option value="54265-BSB-SLN PASS">54265-BSB-SLN PASS</option>
+																			<option value="12334-VIBHUTI  EXPRESS">12334-VIBHUTI  EXPRESS</option>
+																			<option value="12791-SC-DNR  EXPRESS">12791-SC-DNR  EXPRESS</option>
+																			<option value="19057-UDN VARANASI">19057-UDN VARANASI</option>
+																			<option value="14015-SADBHAWANA E">14015-SADBHAWANA E</option>
+																			<option value="14266-DDN BSB  EXPRESS">14266-DDN BSB  EXPRESS</option>
+																			<option value="12538-MUV MFP  EXPRESS">12538-MUV MFP  EXPRESS</option>
+																			<option value="75115-GCT-PRG- PAS">75115-GCT-PRG- PAS</option>
+																			<option value="20903-MAHAMANA SUP">20903-MAHAMANA SUP</option>
+																			<option value="15053-CPR-LJN- EXPRESS">15053-CPR-LJN- EXPRESS</option>
+																			<option value="11107-BUNDELKHAND">11107-BUNDELKHAND</option>
+																			<option value="13009-DOON EXPRESS">13009-DOON EXPRESS</option>
+																			<option value="13307-GANGASUTLEJ">13307-GANGASUTLEJ</option>
+																			<option value="12327-UPASANA  EXPRESS">12327-UPASANA  EXPRESS</option>
+																			<option value="15668-KAMAKHYA-GAN">15668-KAMAKHYA-GAN</option>
+																			<option value="19052-BL SHRAMIK E">19052-BL SHRAMIK E</option>
+																			<option value="14008-SADHBHAWNA E">14008-SADHBHAWNA E</option>
+																			<option value="14265-BSB DDN  EXPRESS">14265-BSB DDN  EXPRESS</option>
+																			<option value="12537-MANDUADIH  EXPRESS">12537-MANDUADIH  EXPRESS</option>
+																			<option value="75112-BSB-GCT-DMU">75112-BSB-GCT-DMU</option>
+																			<option value="19422-PNBE ADI  EXPRESS">19422-PNBE ADI  EXPRESS</option>
+																			<option value="15022-GORAKHPUR-SH">15022-GORAKHPUR-SH</option>
+																			<option value="401-BSB BHARATDA">401-BSB BHARATDA</option>
+																			<option value="11094-MAHANAGARI E">11094-MAHANAGARI E</option>
+																			<option value="18312-BSB-SBP BI-W">18312-BSB-SBP BI-W</option>
+																			<option value="13258-JAN SADHARAN">13258-JAN SADHARAN</option>
+																			<option value="12326-NLDM-KOAA WK">12326-NLDM-KOAA WK</option>
+																			<option value="15667-GADHIDHAM-KA">15667-GADHIDHAM-KA</option>
+																			<option value="19064-DNR UDHNA  E">19064-DNR UDHNA  E</option>
+																			<option value="14018-SADBHAWANA E">14018-SADBHAWANA E</option>
+																			<option value="54255-BSB-LKO PASS">54255-BSB-LKO PASS</option>
+																			<option value="22324-GCT KOAA WEE">22324-GCT KOAA WEE</option>
+																			<option value="15104-INTERCITY  EXPRESS">15104-INTERCITY  EXPRESS</option>
+																			<option value="63233-PNBE-BSB MEM">63233-PNBE-BSB MEM</option>
+																			<option value="13050-ASR HWH  EXPRESS">13050-ASR HWH  EXPRESS</option>
+																			<option value="13346-SGRL-BSB  INTERCITY EXPRESS">13346-SGRL-BSB  INTERCITY EXPRESS</option>
+																			<option value="54263-BSB-SLN PASS">54263-BSB-SLN PASS</option>
+																			<option value="12332-HIMGIRI  EXPRESS">12332-HIMGIRI  EXPRESS</option>
+																			<option value="12669-MAS-CPR GANG">12669-MAS-CPR GANG</option>
+																			<option value="13414-FARKKA  EXPRESS">13414-FARKKA  EXPRESS</option>
+																			<option value="14214-BSB-GD  INTERCITY EXPRESS">14214-BSB-GD  INTERCITY EXPRESS</option>
+																			<option value="12369-KUMBHA  EXPRESS">12369-KUMBHA  EXPRESS</option>
+																			<option value="54267-MGS-BSB PASS">54267-MGS-BSB PASS</option>
+																			<option value="14854-MARUDHAR  EXPRESS">14854-MARUDHAR  EXPRESS</option>
+																			<option value="12876-NDLS-PURI NE">12876-NDLS-PURI NE</option>
+																			<option value="11038-GKP-PUNE  EXPRESS">11038-GKP-PUNE  EXPRESS</option>
+																			<option value="13134-BSB SDAH  EXPRESS">13134-BSB SDAH  EXPRESS</option>
+																			<option value="12166-BSB LTT SUP">12166-BSB LTT SUP</option>
+																			<option value="12354-LKU  HWH   EXPRESS">12354-LKU  HWH   EXPRESS</option>
+																			<option value="15231-BJU - GONDIA">15231-BJU - GONDIA</option>
+																			<option value="19167-SABARMATI  EXPRESS">19167-SABARMATI  EXPRESS</option>
+																			<option value="14203-BSB LKO  INTERCITY EXPRESS">14203-BSB LKO  INTERCITY EXPRESS</option>
+																			<option value="54256-LKO-BSB PASS">54256-LKO-BSB PASS</option>
+																			<option value="22356-CDG - PPTA S">22356-CDG - PPTA S</option>
+																			<option value="15159-SARNATH  EXPRESS">15159-SARNATH  EXPRESS</option>
+																			<option value="11033-PUNE-DBG  EXPRESS">11033-PUNE-DBG  EXPRESS</option>
+																			<option value="63553-ASN BSB PASS">63553-ASN BSB PASS</option>
+																			<option value="13119-SDAH DLI   EXPRESS">13119-SDAH DLI   EXPRESS</option>
+																			<option value="54264-SLN-BSB PASS">54264-SLN-BSB PASS</option>
+																			<option value="12333-VIBHUTI  EXPRESS">12333-VIBHUTI  EXPRESS</option>
+																			<option value="12670-CPR-MAS GANG">12670-CPR-MAS GANG</option>
+																			<option value="19063-DANAPUR  EXPRESS">19063-DANAPUR  EXPRESS</option>
+																			<option value="14017-SADBHAWANA E">14017-SADBHAWANA E</option>
+																			<option value="14524-UMB-MFP HARI">14524-UMB-MFP HARI</option>
+																			<option value="12562-SWATANTRTA S">12562-SWATANTRTA S</option>
+																			<option value="22323-KOAA GCT SHA">22323-KOAA GCT SHA</option>
+																			<option value="15103-INTERCITY  EXPRESS">15103-INTERCITY  EXPRESS</option>
+																			<option value="63226-BSB-PNBE MEM">63226-BSB-PNBE MEM</option>
+																			<option value="13049-AMRITSAR  EXPRESS">13049-AMRITSAR  EXPRESS</option>
+																			<option value="13345-BSB-SGRL  INTERCITY EXPRESS">13345-BSB-SGRL  INTERCITY EXPRESS</option>
+																			<option value="54262-JNU - BSB PA">54262-JNU - BSB PA</option>
+																			<option value="12331-HIMGIRI  EXPRESS">12331-HIMGIRI  EXPRESS</option>
+																			<option value="15934-ASR-DBRG  EXPRESS">15934-ASR-DBRG  EXPRESS</option>
+																			<option value="18631-RNC AII  EXPRESS">18631-RNC AII  EXPRESS</option>
+																			<option value="14003-MLDT-NDLS  EXPRESS">14003-MLDT-NDLS  EXPRESS</option>
+																			<option value="14235-VARANASI-BAR">14235-VARANASI-BAR</option>
+																			<option value="22408-ANVT-BSB GAR">22408-ANVT-BSB GAR</option>
+																			<option value="12382-POORVA  EXPRESS">12382-POORVA  EXPRESS</option>
+																			<option value="54333-BSB-LKO PASS">54333-BSB-LKO PASS</option>
+																			<option value="19321-INDB RJPB  EXPRESS">19321-INDB RJPB  EXPRESS</option>
+																			<option value="15003-CHAURICHAURA">15003-CHAURICHAURA</option>
+																			<option value="11071-KAMAYANI  EXPRESS">11071-KAMAYANI  EXPRESS</option>
+																			<option value="18103-JALLIANWALA">18103-JALLIANWALA</option>
+																			<option value="13237-PNBE- KOTA">13237-PNBE- KOTA</option>
+																			<option value="12237-BSB-JAT EXP.">12237-BSB-JAT EXP.</option>
+																			<option value="15560-ADI-DBG JANS">15560-ADI-DBG JANS</option>
+																			<option value="18612-BSB RNC  EXPRESS">18612-BSB RNC  EXPRESS</option>
+																			<option value="13484-FARAKKA  EXPRESS">13484-FARAKKA  EXPRESS</option>
+																			<option value="14228-VARUNA  EXPRESS">14228-VARUNA  EXPRESS</option>
+																			<option value="22407-BSB-ANVT GAR">22407-BSB-ANVT GAR</option>
+																			<option value="16360-PNBE-ERS  EXPRESS">16360-PNBE-ERS  EXPRESS</option>
+																			<option value="12381-POORVA  EXPRESS">12381-POORVA  EXPRESS</option>
+																			<option value="54292-PBH-BSB PASS">54292-PBH-BSB PASS</option>
+																			<option value="19314-INDORE  EXPRESS">19314-INDORE  EXPRESS</option>
+																			<option value="14866-MARUDHAR  EXPRESS">14866-MARUDHAR  EXPRESS</option>
+																			<option value="11062-DBG  LTT  EXPRESS">11062-DBG  LTT  EXPRESS</option>
+																			<option value="13168-AGC-KOAA WKL">13168-AGC-KOAA WKL</option>
+																			<option value="12236-NDLS-GHY RAJ">12236-NDLS-GHY RAJ</option>
+																			<option value="12358-ASR KOAA SUP">12358-ASR KOAA SUP</option>
+																			<option value="15559-DBG-ADI JANS">15559-DBG-ADI JANS</option>
+																			<option value="18611-RNC BSB  EXPRESS">18611-RNC BSB  EXPRESS</option>
+																			<option value="13483-FARAKKA  EXPRESS">13483-FARAKKA  EXPRESS</option>
+																			<option value="14227-VARUNA  EXPRESS">14227-VARUNA  EXPRESS</option>
+																			<option value="16359-ERS PATNA  EXPRESS">16359-ERS PATNA  EXPRESS</option>
+																			<option value="12372-JSM HWH SF E">12372-JSM HWH SF E</option>
+																			<option value="54291-BSB-PBH PASS">54291-BSB-PBH PASS</option>
+																			<option value="19313-INDB RJPB  E">19313-INDB RJPB  E</option>
+																			<option value="14865-MARUDHAR  EXPRESS">14865-MARUDHAR  EXPRESS</option>
+																			<option value="55122-MUV-BTT PASS">55122-MUV-BTT PASS</option>
+																			<option value="11061-LTT-DBG   EXPRESS">11061-LTT-DBG   EXPRESS</option>
+																			<option value="13167-KOAA-AGC WKL">13167-KOAA-AGC WKL</option>
+																			<option value="12235-GHY-NDLS RAJ">12235-GHY-NDLS RAJ</option>
+																			<option value="12357-DURGIANA  EXPRESS">12357-DURGIANA  EXPRESS</option>
+																			<option value="15268-LTT-RXL JANS">15268-LTT-RXL JANS</option>
+																			<option value="19046-TAPTI GANGA">19046-TAPTI GANGA</option>
+																			<option value="14006-LICHCHIVI  EXPRESS">14006-LICHCHIVI  EXPRESS</option>
+																			<option value="14258-KASHI V  EXPRESS">14258-KASHI V  EXPRESS</option>
+																			<option value="22427-BUI-ANVT SUF">22427-BUI-ANVT SUF</option>
+																			<option value="24227-VARUNA  EXPRESS">24227-VARUNA  EXPRESS</option>
+																			<option value="12435-DBRT - NDLS">12435-DBRT - NDLS</option>
+																			<option value="75106-ALY-MAU-DMU-">75106-ALY-MAU-DMU-</option>
+																			<option value="19408-BSB ADI  EXPRESS">19408-BSB ADI  EXPRESS</option>
+																			<option value="15018-GKP-LTT  EXPRESS">15018-GKP-LTT  EXPRESS</option>
+																			<option value="11082-GKP-LTT VIA">11082-GKP-LTT VIA</option>
+																			<option value="18202-NTV - DURG E">18202-NTV - DURG E</option>
+																			<option value="13240-KOTA - PNBE">13240-KOTA - PNBE</option>
+																			<option value="53526-BSB-BRKA PAS">53526-BSB-BRKA PAS</option>
+																			<option value="12318-AKAL TAKHAT">12318-AKAL TAKHAT</option>
+																			<option value="15635-DWARKA  EXPRESS">15635-DWARKA  EXPRESS</option>
+																			<option value="18610-LTT RNC WEEK">18610-LTT RNC WEEK</option>
+																			<option value="13430-ANVT-MLDT WK">13430-ANVT-MLDT WK</option>
+																			<option value="14220-LKO-BSB  EXPRESS">14220-LKO-BSB  EXPRESS</option>
+																			<option value="16229-MYS-BSB BI-W">16229-MYS-BSB BI-W</option>
+																			<option value="12371-HWH JSM SF E">12371-HWH JSM SF E</option>
+																			<option value="54270-BSB-MGSPASSE">54270-BSB-MGSPASSE</option>
+																			<option value="14864-MARUDHAR  EXPRESS">14864-MARUDHAR  EXPRESS</option>
+																			<option value="13006-ASR HWH MAIL">13006-ASR HWH MAIL</option>
+																			<option value="11046-DIKSHABHUMI">11046-DIKSHABHUMI</option>
+																			<option value="13152-SEALDAH  EXPRESS">13152-SEALDAH  EXPRESS</option>
+																			<option value="12168-BSB-LTT SF E">12168-BSB-LTT SF E</option>
+																			<option value="12356-ARCHNA  EXPRESS">12356-ARCHNA  EXPRESS</option>
+																			<option value="15267-RXL-LTT JANS">15267-RXL-LTT JANS</option>
+																			<option value="18609-RNC LTT  EXPRESS">18609-RNC LTT  EXPRESS</option>
+																			<option value="13429-MLDT-ANVT WK">13429-MLDT-ANVT WK</option>
+																			<option value="14219-BSB-LKO  EXPRESS">14219-BSB-LKO  EXPRESS</option>
+																			<option value="12370-HW HWH S F E">12370-HW HWH S F E</option>
+																			<option value="54268-BSB-MGS PASS">54268-BSB-MGS PASS</option>
+																			<option value="14863-MARUDHAR  EXPRESS">14863-MARUDHAR  EXPRESS</option>
+																			<option value="13005-AMRITSAR MAI">13005-AMRITSAR MAI</option>
+																			<option value="11045-DIKSHABHOOMI">11045-DIKSHABHOOMI</option>
+																			<option value="13151-JAMMU TAWI E">13151-JAMMU TAWI E</option>
+																			<option value="12167-LTT(T)-BSB S">12167-LTT(T)-BSB S</option>
+																			<option value="12355-ARCHNA  EXPRESS">12355-ARCHNA  EXPRESS</option>
+																			<option value="15232-GONDIA - BJU">15232-GONDIA - BJU</option>
+																			<option value="19045-TAPTI GANGA">19045-TAPTI GANGA</option>
+																			<option value="14005-LICHCHIVI  EXPRESS">14005-LICHCHIVI  EXPRESS</option>
+																			<option value="14257-K V  EXPRESS">14257-K V  EXPRESS</option>
+																			<option value="22418-MAHAMANA  EXPRESS">22418-MAHAMANA  EXPRESS</option>
+																			<option value="22970-BSB OKHA SF">22970-BSB OKHA SF</option>
+																			<option value="12392-SHRAMJEEVI E">12392-SHRAMJEEVI E</option>
+																			<option value="75105-MAU-ALY-DMU-">75105-MAU-ALY-DMU-</option>
+																			<option value="19407-ADI VARANASI">19407-ADI VARANASI</option>
+																			<option value="15017-KASHI  EXPRESS">15017-KASHI  EXPRESS</option>
+																			<option value="11081-LTT-GKP VIA">11081-LTT-GKP VIA</option>
+																			<option value="18201-DURG - NTV E">18201-DURG - NTV E</option>
+																			<option value="13239-PNBE-KOTA  EXPRESS">13239-PNBE-KOTA  EXPRESS</option>
+																			<option value="53525-BRKA-BSB PAS">53525-BRKA-BSB PAS</option>
+																			<option value="12317-AKAL TAKHT E">12317-AKAL TAKHT E</option>
+																			<option value="15624-KYQ BGKT WEE">15624-KYQ BGKT WEE</option>
+																			<option value="19058-BSB UDN  EXPRESS">19058-BSB UDN  EXPRESS</option>
+																			<option value="14016-SADHBHAWNA E">14016-SADHBHAWNA E</option>
+																			<option value="14523-MFP-UMB  EXPRESS">14523-MFP-UMB  EXPRESS</option>
+																			<option value="12561-SWATANTRTA S">12561-SWATANTRTA S</option>
+																			<option value="75116-PRG-GCT DEMU">75116-PRG-GCT DEMU</option>
+																			<option value="20904-MAHAMANA SUP">20904-MAHAMANA SUP</option>
+																			<option value="15054-LJN-CPR- EXPRESS">15054-LJN-CPR- EXPRESS</option>
+																			<option value="11108-BUNDELKHAND">11108-BUNDELKHAND</option>
+																			<option value="13010-DOON EXPRESS">13010-DOON EXPRESS</option>
+																			<option value="13308-GANGASATLUJ">13308-GANGASATLUJ</option>
+																			<option value="12328-UPASANA  EXPRESS">12328-UPASANA  EXPRESS</option>
+																			<option value="15933-DBRG-ASR  EXPRESS">15933-DBRG-ASR  EXPRESS</option>
+																			<option value="19051-SHRAMIK  EXPRESS">19051-SHRAMIK  EXPRESS</option>
+																			<option value="14007-SADBHAWNA  EXPRESS">14007-SADBHAWNA  EXPRESS</option>
+																			<option value="14260-LKO-MGS EKAT">14260-LKO-MGS EKAT</option>
+																			<option value="22428-ANVT-BUI SUF">22428-ANVT-BUI SUF</option>
+																			<option value="24228-VARUNA  EXPRESS">24228-VARUNA  EXPRESS</option>
+																			<option value="12436-NDLS - DBRT">12436-NDLS - DBRT</option>
+																			<option value="75111-GCT-BSB DMU">75111-GCT-BSB DMU</option>
+																			<option value="19421-ADI PNBE  EXPRESS">19421-ADI PNBE  EXPRESS</option>
+																			<option value="15021-SHALIMAR-GOR">15021-SHALIMAR-GOR</option>
+																			<option value="11093-MAHANAGARI E">11093-MAHANAGARI E</option>
+																			<option value="18311-SBP-BSB BI-W">18311-SBP-BSB BI-W</option>
+																			<option value="13257-JAN SADHARAN">13257-JAN SADHARAN</option>
+																			<option value="12325-KOAA-NANGALD">12325-KOAA-NANGALD</option>
+																			<option value="15636-DWARKA  EXPRESS">15636-DWARKA  EXPRESS</option>
+																			<option value="18632-AII RNC  EXPRESS">18632-AII RNC  EXPRESS</option>
+																			<option value="14004-NDLS-MLDT  EXPRESS">14004-NDLS-MLDT  EXPRESS</option>
+																			<option value="14236-BERELLY VARA">14236-BERELLY VARA</option>
+																			<option value="22417-MAHAMANA  EXPRESS">22417-MAHAMANA  EXPRESS</option>
+																			<option value="22969-OKHA BSB  EXPRESS">22969-OKHA BSB  EXPRESS</option>
+																			<option value="12391-SHRAMJEEVI E">12391-SHRAMJEEVI E</option>
+																			<option value="54334-LKO-BSB PASS">54334-LKO-BSB PASS</option>
+																			<option value="19322-RJPB INDB  EXPRESS">19322-RJPB INDB  EXPRESS</option>
+																			<option value="15004-CHAURICHAURA">15004-CHAURICHAURA</option>
+																			<option value="11072-KAMAYANI  EXPRESS">11072-KAMAYANI  EXPRESS</option>
+																			<option value="18104-JALLIANWALAB">18104-JALLIANWALAB</option>
+																			<option value="13238-KOTA - PNBE">13238-KOTA - PNBE</option>
+																			<option value="12238-JAT-BSB EXP.">12238-JAT-BSB EXP.</option>
+																			<option value="15623-BGKT KYQ WEE">15623-BGKT KYQ WEE</option>
+																			<option value="13413-FARAKKA  EXPRESS">13413-FARAKKA  EXPRESS</option>
+																			<option value="14213-BSB-GD  INTERCITY EXPRESS">14213-BSB-GD  INTERCITY EXPRESS</option>
+																			<option value="17324-BSB-UBL WEEK">17324-BSB-UBL WEEK</option>
+																			<option value="54266-SLN-BSB PASS">54266-SLN-BSB PASS</option>
+																			<option value="54110-MGS - FD PAS">54110-MGS - FD PAS</option>
+																			<option value="14853-MARUDHAR  EXPRESS">14853-MARUDHAR  EXPRESS</option>
+																			<option value="12875-PURI-NDLS NE">12875-PURI-NDLS NE</option>
+																			<option value="11037-PUNE-GKP  EXPRESS">11037-PUNE-GKP  EXPRESS</option>
+																			<option value="13133-SDAH  BSB  EXPRESS">13133-SDAH  BSB  EXPRESS</option>
+																			<option value="12165-LTT BSB SUP">12165-LTT BSB SUP</option>
+																			<option value="12353-HWH LKU  EXPRESS">12353-HWH LKU  EXPRESS</option>
+																			<option value="12792-DNR-SC  EXPRESS">12792-DNR-SC  EXPRESS</option>
+																			<option value="3102-PURI KOAA SP">3102-PURI KOAA SP</option>
+																			<option value="12326-NLDM-KOAA WK">12326-NLDM-KOAA WK</option>
+																			<option value="13118-LGL KOAA  EXPRESS">13118-LGL KOAA  EXPRESS</option>
+																			<option value="13158-TRIHUT  EXPRESS">13158-TRIHUT  EXPRESS</option>
+																			<option value="30135-MJT-RHA LOCA">30135-MJT-RHA LOCA</option>
+																			<option value="30452-SDAH-KOAA LO">30452-SDAH-KOAA LO</option>
+																			<option value="15048-PURVANCHAL E">15048-PURVANCHAL E</option>
+																			<option value="19413-KOLKATA  EXPRESS">19413-KOLKATA  EXPRESS</option>
+																			<option value="13132-PNBE - KOAA">13132-PNBE - KOAA</option>
+																			<option value="13166-SITAMARI-KOL">13166-SITAMARI-KOL</option>
+																			<option value="30313-MJT-BT LOCAL">30313-MJT-BT LOCAL</option>
+																			<option value="12316-ANANYA  EXPRESS">12316-ANANYA  EXPRESS</option>
+																			<option value="13146-KOLKATTA RAD">13146-KOLKATTA RAD</option>
+																			<option value="30112-BP - MJT LOC">30112-BP - MJT LOC</option>
+																			<option value="30331-MJT- HB LOCA">30331-MJT- HB LOCA</option>
+																			<option value="12496-PRATAP  EXPRESS">12496-PRATAP  EXPRESS</option>
+																			<option value="3101-KOAA PURI SP">3101-KOAA PURI SP</option>
+																			<option value="12325-KOAA-NANGALD">12325-KOAA-NANGALD</option>
+																			<option value="13117-KOAA LGL  EXPRESS">13117-KOAA LGL  EXPRESS</option>
+																			<option value="13157-TRIHUT  EXPRESS">13157-TRIHUT  EXPRESS</option>
+																			<option value="30128-KLYM - MJT L">30128-KLYM - MJT L</option>
+																			<option value="30346-BNJ-BBD LOCA">30346-BNJ-BBD LOCA</option>
+																			<option value="15047-PURBANCHAL E">15047-PURBANCHAL E</option>
+																			<option value="13131-KOAA PNBE  E">13131-KOAA PNBE  E</option>
+																			<option value="13165-KOLKATA-SITA">13165-KOLKATA-SITA</option>
+																			<option value="30312-BT -PPGT LOC">30312-BT -PPGT LOC</option>
+																			<option value="15050-GKP KKK   EXPRESS">15050-GKP KKK   EXPRESS</option>
+																			<option value="19607-KOAA AII  EXPRESS">19607-KOAA AII  EXPRESS</option>
+																			<option value="13136-JYG KOAA   EXPRESS">13136-JYG KOAA   EXPRESS</option>
+																			<option value="13168-AGC-KOAA WKL">13168-AGC-KOAA WKL</option>
+																			<option value="30317-MJT-DTK LOCA">30317-MJT-DTK LOCA</option>
+																			<option value="15049-KKK-GKP  EXPRESS">15049-KKK-GKP  EXPRESS</option>
+																			<option value="19414-KOAA ADI  EXPRESS">19414-KOAA ADI  EXPRESS</option>
+																			<option value="13135-KOAA JYG  EXPRESS">13135-KOAA JYG  EXPRESS</option>
+																			<option value="13167-KOAA-AGC WKL">13167-KOAA-AGC WKL</option>
+																			<option value="30314-DTK-MJT LOCA">30314-DTK-MJT LOCA</option>
+																			<option value="12358-ASR KOAA SUP">12358-ASR KOAA SUP</option>
+																			<option value="53179-CP - LGL PAS">53179-CP - LGL PAS</option>
+																			<option value="13122-GCT KOAA  EXPRESS">13122-GCT KOAA  EXPRESS</option>
+																			<option value="13160-JOGBANI-KOLK">13160-JOGBANI-KOLK</option>
+																			<option value="30145-BBD-KNJ">30145-BBD-KNJ</option>
+																			<option value="12357-DURGIANA  EXPRESS">12357-DURGIANA  EXPRESS</option>
+																			<option value="13121-KOAA GCT  EXPRESS">13121-KOAA GCT  EXPRESS</option>
+																			<option value="13159-KOLKATA-JOGB">13159-KOLKATA-JOGB</option>
+																			<option value="30142-GEDE - MJT L">30142-GEDE - MJT L</option>
+																			<option value="30612-BBDB - BRP L">30612-BBDB - BRP L</option>
+																			<option value="12320-AGC-KOAA WEE">12320-AGC-KOAA WEE</option>
+																			<option value="13114-HAZARDUARI E">13114-HAZARDUARI E</option>
+																			<option value="13156-MITHILANCHAL">13156-MITHILANCHAL</option>
+																			<option value="30123-MJT - NH LOC">30123-MJT - NH LOC</option>
+																			<option value="30344-BNJ - MJT LO">30344-BNJ - MJT LO</option>
+																			<option value="12526-DBRG - KOAA">12526-DBRG - KOAA</option>
+																			<option value="12359-PNBE GARIB R">12359-PNBE GARIB R</option>
+																			<option value="53180-LGL-KOAA PAS">53180-LGL-KOAA PAS</option>
+																			<option value="13129-KOAA KHULNA">13129-KOAA KHULNA</option>
+																			<option value="13161-KOLKATA-BALU">13161-KOLKATA-BALU</option>
+																			<option value="30211-BBDB - DDJ L">30211-BBDB - DDJ L</option>
+																			<option value="15233-KOLKATA-DARB">15233-KOLKATA-DARB</option>
+																			<option value="15051-KKK GKP  EXPRESS">15051-KKK GKP  EXPRESS</option>
+																			<option value="19608-AII KOAA  EXPRESS">19608-AII KOAA  EXPRESS</option>
+																			<option value="13137-KOAA-AMH WKL">13137-KOAA-AMH WKL</option>
+																			<option value="30321-MJT - HNB LO">30321-MJT - HNB LO</option>
+																			<option value="12363-KOAA HDB SF">12363-KOAA HDB SF</option>
+																			<option value="12315-ANNANYA   EXPRESS">12315-ANNANYA   EXPRESS</option>
+																			<option value="22324-GCT KOAA WEE">22324-GCT KOAA WEE</option>
+																			<option value="13145-KOLKATA RADH">13145-KOLKATA RADH</option>
+																			<option value="30111-BLN- BP  LOC">30111-BLN- BP  LOC</option>
+																			<option value="30324-HNB-PPGT LOC">30324-HNB-PPGT LOC</option>
+																			<option value="12495-BKN KOAA SUP">12495-BKN KOAA SUP</option>
+																			<option value="12319-KOAA-AGC WEE">12319-KOAA-AGC WEE</option>
+																			<option value="13113-HAZARDUARI E">13113-HAZARDUARI E</option>
+																			<option value="13155-MITHILANCHAL">13155-MITHILANCHAL</option>
+																			<option value="30122-NH - MJT LOC">30122-NH - MJT LOC</option>
+																			<option value="30342-BNJ - MJT LO">30342-BNJ - MJT LO</option>
+																			<option value="12525-KOAA - DBRG">12525-KOAA - DBRG</option>
+																			<option value="12317-AKAL TAKHT E">12317-AKAL TAKHT E</option>
+																			<option value="13109-KOL-DHAKA MA">13109-KOL-DHAKA MA</option>
+																			<option value="13151-JAMMU TAWI E">13151-JAMMU TAWI E</option>
+																			<option value="30116-BP-BBDB LOCA">30116-BP-BBDB LOCA</option>
+																			<option value="30332-HB - MJT LOC">30332-HB - MJT LOC</option>
+																			<option value="12517-GARIB RATH E">12517-GARIB RATH E</option>
+																			<option value="15052-GKP KKK EXPRESS">15052-GKP KKK EXPRESS</option>
+																			<option value="22323-KOAA GCT SHA">22323-KOAA GCT SHA</option>
+																			<option value="13138-AMH-BP WEEKL">13138-AMH-BP WEEKL</option>
+																			<option value="30322-HNB-BBDB LOC">30322-HNB-BBDB LOC</option>
+																			<option value="12364-HDB KOA SF E">12364-HDB KOA SF E</option>
+																			<option value="53140-JASIDIH KOLK">53140-JASIDIH KOLK</option>
+																			<option value="12360-KOL GARIB RA">12360-KOL GARIB RA</option>
+																			<option value="53139-KOAA JSME PG">53139-KOAA JSME PG</option>
+																			<option value="13130-KHULNA KOLKA">13130-KHULNA KOLKA</option>
+																			<option value="13162-BLGT-KOLKATA">13162-BLGT-KOLKATA</option>
+																			<option value="30311-PPGT - BT LO">30311-PPGT - BT LO</option>
+																			<option value="15234-DARBHANGA-KO">15234-DARBHANGA-KO</option>
+																			<option value="12318-AKAL TAKHAT">12318-AKAL TAKHAT</option>
+																			<option value="13110-DHAKA-KOLKAT">13110-DHAKA-KOLKAT</option>
+																			<option value="13152-SEALDAH  EXPRESS">13152-SEALDAH  EXPRESS</option>
+																			<option value="30121-MJT-NH LOCAL">30121-MJT-NH LOCAL</option>
+																			<option value="30333-MJT-HB  LOCA">30333-MJT-HB  LOCA</option>
+																			<option value="12518-GARIB RATH E">12518-GARIB RATH E</option>
+																			<option value="55125-MUV - ALY  P">55125-MUV - ALY  P</option>
+																			<option value="55129-BSB-ALY PASS">55129-BSB-ALY PASS</option>
+																			<option value="75105-MAU-ALY-DMU-">75105-MAU-ALY-DMU-</option>
+																			<option value="12581-MUV-NDLS-SUP">12581-MUV-NDLS-SUP</option>
+																			<option value="55126-ALY-BSB PASS">55126-ALY-BSB PASS</option>
+																			<option value="11033-PUNE-DBG  EXPRESS">11033-PUNE-DBG  EXPRESS</option>
+																			<option value="12582-NDLS-MUV-SUP">12582-NDLS-MUV-SUP</option>
+																			<option value="55130-ALY- MUV PAS">55130-ALY- MUV PAS</option>
+																			<option value="15003-CHAURICHAURA">15003-CHAURICHAURA</option>
+																			<option value="15004-CHAURICHAURA">15004-CHAURICHAURA</option>
+																			<option value="22427-BUI-ANVT SUF">22427-BUI-ANVT SUF</option>
+																			<option value="15103-INTERCITY  EXPRESS">15103-INTERCITY  EXPRESS</option>
+																			<option value="12559-SHIV GANGA E">12559-SHIV GANGA E</option>
+																			<option value="15119-RMM-MUV  EXPRESS">15119-RMM-MUV  EXPRESS</option>
+																			<option value="15559-DBG-ADI JANS">15559-DBG-ADI JANS</option>
+																			<option value="55128-ALY - MUV PA">55128-ALY - MUV PA</option>
+																			<option value="55127-BSB- ALY  PA">55127-BSB- ALY  PA</option>
+																			<option value="11034-DBG-PUNE  EXPRESS">11034-DBG-PUNE  EXPRESS</option>
+																			<option value="75106-ALY-MAU-DMU-">75106-ALY-MAU-DMU-</option>
+																			<option value="22131-GYAN GANGA E">22131-GYAN GANGA E</option>
+																			<option value="12538-MUV MFP  EXPRESS">12538-MUV MFP  EXPRESS</option>
+																			<option value="15118-JBP-MUV  EXPRESS">15118-JBP-MUV  EXPRESS</option>
+																			<option value="12333-VIBHUTI  EXPRESS">12333-VIBHUTI  EXPRESS</option>
+																			<option value="22428-ANVT-BUI SUF">22428-ANVT-BUI SUF</option>
+																			<option value="15104-INTERCITY  EXPRESS">15104-INTERCITY  EXPRESS</option>
+																			<option value="55122-MUV-BTT PASS">55122-MUV-BTT PASS</option>
+																			<option value="75107-MUV-ALY-DMU">75107-MUV-ALY-DMU</option>
+																			<option value="22132-GYAN GANGA S">22132-GYAN GANGA S</option>
+																			<option value="12560-SHIVGANGA">12560-SHIVGANGA</option>
+																			<option value="15120-MUV-RMM  EXPRESS">15120-MUV-RMM  EXPRESS</option>
+																			<option value="15560-ADI-DBG JANS">15560-ADI-DBG JANS</option>
+																			<option value="12334-VIBHUTI  EXPRESS">12334-VIBHUTI  EXPRESS</option>
+																			<option value="12537-MANDUADIH  EXPRESS">12537-MANDUADIH  EXPRESS</option>
+																			<option value="15117-MUV-JBP  EXPRESS">15117-MUV-JBP  EXPRESS</option>
+																			<option value="22411-NHLN-NDLS AC">22411-NHLN-NDLS AC</option>
+																			<option value="64210-CNB-LKO MEMU">64210-CNB-LKO MEMU</option>
+																			<option value="15668-KAMAKHYA-GAN">15668-KAMAKHYA-GAN</option>
+																			<option value="13167-KOAA-AGC WKL">13167-KOAA-AGC WKL</option>
+																			<option value="12553-VAISHALI  EXPRESS">12553-VAISHALI  EXPRESS</option>
+																			<option value="19407-ADI VARANASI">19407-ADI VARANASI</option>
+																			<option value="54232-LKO-FD PASSE">54232-LKO-FD PASSE</option>
+																			<option value="54334-LKO-BSB PASS">54334-LKO-BSB PASS</option>
+																			<option value="11111-GWL-BLP SUSH">11111-GWL-BLP SUSH</option>
+																			<option value="14017-SADBHAWANA E">14017-SADBHAWANA E</option>
+																			<option value="14221-FD-CPA  EXPRESS">14221-FD-CPA  EXPRESS</option>
+																			<option value="14524-UMB-MFP HARI">14524-UMB-MFP HARI</option>
+																			<option value="15024-YPR-GKP- EXPRESS">15024-YPR-GKP- EXPRESS</option>
+																			<option value="12173-LTT-CNB  EXPRESS">12173-LTT-CNB  EXPRESS</option>
+																			<option value="12325-KOAA-NANGALD">12325-KOAA-NANGALD</option>
+																			<option value="22684-LKO-YPR WEEK">22684-LKO-YPR WEEK</option>
+																			<option value="64222-HRI-LKO-HRI">64222-HRI-LKO-HRI</option>
+																			<option value="15279-POORBIYA  EXPRESS">15279-POORBIYA  EXPRESS</option>
+																			<option value="15909-AVADH ASSAM">15909-AVADH ASSAM</option>
+																			<option value="13258-JAN SADHARAN">13258-JAN SADHARAN</option>
+																			<option value="12372-JSM HWH SF E">12372-JSM HWH SF E</option>
+																			<option value="12566-BIHAR SAMPAR">12566-BIHAR SAMPAR</option>
+																			<option value="19710-KYQ JP KAVIG">19710-KYQ JP KAVIG</option>
+																			<option value="54255-BSB-LKO PASS">54255-BSB-LKO PASS</option>
+																			<option value="24227-VARUNA  EXPRESS">24227-VARUNA  EXPRESS</option>
+																			<option value="13430-ANVT-MLDT WK">13430-ANVT-MLDT WK</option>
+																			<option value="14204-LKO BSB  INTERCITY EXPRESS">14204-LKO BSB  INTERCITY EXPRESS</option>
+																			<option value="14258-KASHI V  EXPRESS">14258-KASHI V  EXPRESS</option>
+																			<option value="14853-MARUDHAR  EXPRESS">14853-MARUDHAR  EXPRESS</option>
+																			<option value="15063-GKP-LTT  EXPRESS">15063-GKP-LTT  EXPRESS</option>
+																			<option value="12212-ANVT-MFP GAR">12212-ANVT-MFP GAR</option>
+																			<option value="12354-LKU  HWH   EXPRESS">12354-LKU  HWH   EXPRESS</option>
+																			<option value="18104-JALLIANWALAB">18104-JALLIANWALAB</option>
+																			<option value="22419-GCT-ANVT SUH">22419-GCT-ANVT SUH</option>
+																			<option value="64214-KAP-LKO MEMU">64214-KAP-LKO MEMU</option>
+																			<option value="15716-GAREEB NAWAJ">15716-GAREEB NAWAJ</option>
+																			<option value="13239-PNBE-KOTA  EXPRESS">13239-PNBE-KOTA  EXPRESS</option>
+																			<option value="12369-KUMBHA  EXPRESS">12369-KUMBHA  EXPRESS</option>
+																			<option value="12557-SAPT KRANTI">12557-SAPT KRANTI</option>
+																			<option value="19601-UDZ NJP  EXPRESS">19601-UDZ NJP  EXPRESS</option>
+																			<option value="54252-SRE - LKO PA">54252-SRE - LKO PA</option>
+																			<option value="13413-FARAKKA  EXPRESS">13413-FARAKKA  EXPRESS</option>
+																			<option value="14123-INTERCITY  EXPRESS">14123-INTERCITY  EXPRESS</option>
+																			<option value="14235-VARANASI-BAR">14235-VARANASI-BAR</option>
+																			<option value="12144-SLN LTT SF S">12144-SLN LTT SF S</option>
+																			<option value="14650-SARYUYAMUNA">14650-SARYUYAMUNA</option>
+																			<option value="15030-PUNE-GKP- EXPRESS">15030-PUNE-GKP- EXPRESS</option>
+																			<option value="12203-GARIB RATH">12203-GARIB RATH</option>
+																			<option value="12331-HIMGIRI  EXPRESS">12331-HIMGIRI  EXPRESS</option>
+																			<option value="64203-LKO-CNB MEMU">64203-LKO-CNB MEMU</option>
+																			<option value="64235-BBK-CNB MEMU">64235-BBK-CNB MEMU</option>
+																			<option value="15635-DWARKA  EXPRESS">15635-DWARKA  EXPRESS</option>
+																			<option value="13010-DOON EXPRESS">13010-DOON EXPRESS</option>
+																			<option value="12595-GKP-ANVT HAM">12595-GKP-ANVT HAM</option>
+																			<option value="12420-GOMTI  EXPRESS">12420-GOMTI  EXPRESS</option>
+																			<option value="51813-JHS-LKO PASS">51813-JHS-LKO PASS</option>
+																			<option value="19314-INDORE  EXPRESS">19314-INDORE  EXPRESS</option>
+																			<option value="54283-SLN-LKO PASS">54283-SLN-LKO PASS</option>
+																			<option value="12875-PURI-NDLS NE">12875-PURI-NDLS NE</option>
+																			<option value="14004-NDLS-MLDT  EXPRESS">14004-NDLS-MLDT  EXPRESS</option>
+																			<option value="14208-PADMAVAT  EXPRESS">14208-PADMAVAT  EXPRESS</option>
+																			<option value="14307-PRG -BE PASS">14307-PRG -BE PASS</option>
+																			<option value="14865-MARUDHAR  EXPRESS">14865-MARUDHAR  EXPRESS</option>
+																			<option value="15067-GKP-BDTS  EXPRESS">15067-GKP-BDTS  EXPRESS</option>
+																			<option value="12232-CDG - LKO  EXPRESS">12232-CDG - LKO  EXPRESS</option>
+																			<option value="12358-ASR KOAA SUP">12358-ASR KOAA SUP</option>
+																			<option value="22412-NDLS-NHLN AC">22412-NDLS-NHLN AC</option>
+																			<option value="64211-LKO-CNB MEMU">64211-LKO-CNB MEMU</option>
+																			<option value="15707-KIR-ASR  EXPRESS">15707-KIR-ASR  EXPRESS</option>
+																			<option value="13168-AGC-KOAA WKL">13168-AGC-KOAA WKL</option>
+																			<option value="12554-VAISHALI  EXPRESS">12554-VAISHALI  EXPRESS</option>
+																			<option value="19408-BSB ADI  EXPRESS">19408-BSB ADI  EXPRESS</option>
+																			<option value="54233-FD - LKO PAS">54233-FD - LKO PAS</option>
+																			<option value="54377-PRAYAG- BARE">54377-PRAYAG- BARE</option>
+																			<option value="11112-BLP-GWL SUSH">11112-BLP-GWL SUSH</option>
+																			<option value="14018-SADBHAWANA E">14018-SADBHAWANA E</option>
+																			<option value="14222-CPA-FD  EXPRESS">14222-CPA-FD  EXPRESS</option>
+																			<option value="15025-MAU-ANVT  EXPRESS">15025-MAU-ANVT  EXPRESS</option>
+																			<option value="12174-CNB-LTT  EXPRESS">12174-CNB-LTT  EXPRESS</option>
+																			<option value="12326-NLDM-KOAA WK">12326-NLDM-KOAA WK</option>
+																			<option value="64201-LKO-CNB MEMU">64201-LKO-CNB MEMU</option>
+																			<option value="64232-LKO-BBK MEMU">64232-LKO-BBK MEMU</option>
+																			<option value="15623-BGKT KYQ WEE">15623-BGKT KYQ WEE</option>
+																			<option value="15934-ASR-DBRG  EXPRESS">15934-ASR-DBRG  EXPRESS</option>
+																			<option value="13308-GANGASATLUJ">13308-GANGASATLUJ</option>
+																			<option value="12392-SHRAMJEEVI E">12392-SHRAMJEEVI E</option>
+																			<option value="12587-AMAR NATH  EXPRESS">12587-AMAR NATH  EXPRESS</option>
+																			<option value="19270-PBR EXPRESS">19270-PBR EXPRESS</option>
+																			<option value="22122-LKO-LTT AC S">22122-LKO-LTT AC S</option>
+																			<option value="54281-SLN-LKO PASS">54281-SLN-LKO PASS</option>
+																			<option value="24369-TRIVENI  EXPRESS">24369-TRIVENI  EXPRESS</option>
+																			<option value="13484-FARAKKA  EXPRESS">13484-FARAKKA  EXPRESS</option>
+																			<option value="14206-DLI-FD  EXPRESS">14206-DLI-FD  EXPRESS</option>
+																			<option value="14265-BSB DDN  EXPRESS">14265-BSB DDN  EXPRESS</option>
+																			<option value="14863-MARUDHAR  EXPRESS">14863-MARUDHAR  EXPRESS</option>
+																			<option value="15065-GKP-PNVL  EXPRESS">15065-GKP-PNVL  EXPRESS</option>
+																			<option value="12230-LUCKNOW MAIL">12230-LUCKNOW MAIL</option>
+																			<option value="12356-ARCHNA  EXPRESS">12356-ARCHNA  EXPRESS</option>
+																			<option value="22418-MAHAMANA  EXPRESS">22418-MAHAMANA  EXPRESS</option>
+																			<option value="64213-LKO-CNB MEMU">64213-LKO-CNB MEMU</option>
+																			<option value="15715-GAREEB NAWAJ">15715-GAREEB NAWAJ</option>
+																			<option value="13238-KOTA - PNBE">13238-KOTA - PNBE</option>
+																			<option value="12556-GORAKHDHAM E">12556-GORAKHDHAM E</option>
+																			<option value="19410-GKP ADI  EXPRESS">19410-GKP ADI  EXPRESS</option>
+																			<option value="54251-LKO-SRE PASS">54251-LKO-SRE PASS</option>
+																			<option value="11124-GWALIAR-BJU">11124-GWALIAR-BJU</option>
+																			<option value="14116-HW ALD  EXPRESS">14116-HW ALD  EXPRESS</option>
+																			<option value="14228-VARUNA  EXPRESS">14228-VARUNA  EXPRESS</option>
+																			<option value="12143-LTT-SLN SF E">12143-LTT-SLN SF E</option>
+																			<option value="14649-SARYUYAMUNA">14649-SARYUYAMUNA</option>
+																			<option value="15029-GKP-PUNE- EXPRESS">15029-GKP-PUNE- EXPRESS</option>
+																			<option value="12184-PBH-BPL SUF">12184-PBH-BPL SUF</option>
+																			<option value="12328-UPASANA  EXPRESS">12328-UPASANA  EXPRESS</option>
+																			<option value="22420-ANVT-GCT SUH">22420-ANVT-GCT SUH</option>
+																			<option value="64216-KAP-LKO MEMU">64216-KAP-LKO MEMU</option>
+																			<option value="15269-MFP-ADI JANS">15269-MFP-ADI JANS</option>
+																			<option value="15903-DBRG-CDG  EXPRESS">15903-DBRG-CDG  EXPRESS</option>
+																			<option value="13240-KOTA - PNBE">13240-KOTA - PNBE</option>
+																			<option value="12370-HW HWH S F E">12370-HW HWH S F E</option>
+																			<option value="12558-SAPT KRANTI">12558-SAPT KRANTI</option>
+																			<option value="19602-NJP UDZ  EXPRESS">19602-NJP UDZ  EXPRESS</option>
+																			<option value="54253-PYG-LKO PASS">54253-PYG-LKO PASS</option>
+																			<option value="13414-FARKKA  EXPRESS">13414-FARKKA  EXPRESS</option>
+																			<option value="14124-KANPUR  INTERCITY EXPRESS">14124-KANPUR  INTERCITY EXPRESS</option>
+																			<option value="14236-BERELLY VARA">14236-BERELLY VARA</option>
+																			<option value="14673-SHAHEED  EXPRESS">14673-SHAHEED  EXPRESS</option>
+																			<option value="15057-GKP-ANVT- EXPRESS">15057-GKP-ANVT- EXPRESS</option>
+																			<option value="12204-GRIB RATH">12204-GRIB RATH</option>
+																			<option value="12332-HIMGIRI  EXPRESS">12332-HIMGIRI  EXPRESS</option>
+																			<option value="64205-LKO-CNB MEMU">64205-LKO-CNB MEMU</option>
+																			<option value="64281-SLN-LKO MEMU">64281-SLN-LKO MEMU</option>
+																			<option value="15651-GHY-JAT LOHI">15651-GHY-JAT LOHI</option>
+																			<option value="13050-ASR HWH  EXPRESS">13050-ASR HWH  EXPRESS</option>
+																			<option value="12597-GKP-CSMT-WEE">12597-GKP-CSMT-WEE</option>
+																			<option value="19054-MFP ST  EXPRESS">19054-MFP ST  EXPRESS</option>
+																			<option value="12436-NDLS - DBRT">12436-NDLS - DBRT</option>
+																			<option value="19322-RJPB INDB  EXPRESS">19322-RJPB INDB  EXPRESS</option>
+																			<option value="54293-PBH-LKO PASS">54293-PBH-LKO PASS</option>
+																			<option value="13005-AMRITSAR MAI">13005-AMRITSAR MAI</option>
+																			<option value="14008-SADHBHAWNA E">14008-SADHBHAWNA E</option>
+																			<option value="14210-LKO - BDL IN">14210-LKO - BDL IN</option>
+																			<option value="14369-TRIVENI  EXPRESS">14369-TRIVENI  EXPRESS</option>
+																			<option value="15001-MFP DDN  EXPRESS">15001-MFP DDN  EXPRESS</option>
+																			<option value="15097-AMARNATH  EXPRESS">15097-AMARNATH  EXPRESS</option>
+																			<option value="12236-NDLS-GHY RAJ">12236-NDLS-GHY RAJ</option>
+																			<option value="74202-LKO/PBH DMU">74202-LKO/PBH DMU</option>
+																			<option value="22417-MAHAMANA  EXPRESS">22417-MAHAMANA  EXPRESS</option>
+																			<option value="64212-CNB-LKO MEMU">64212-CNB-LKO MEMU</option>
+																			<option value="15708-ASR-KIR  EXPRESS">15708-ASR-KIR  EXPRESS</option>
+																			<option value="13237-PNBE- KOTA">13237-PNBE- KOTA</option>
+																			<option value="12555-GORAKHDHAM E">12555-GORAKHDHAM E</option>
+																			<option value="19409-GORAKHPUR  EXPRESS">19409-GORAKHPUR  EXPRESS</option>
+																			<option value="54234-LKO-FD PASS">54234-LKO-FD PASS</option>
+																			<option value="54378-BE-PRG PASSE">54378-BE-PRG PASSE</option>
+																			<option value="11123-BARAUNI-GWL">11123-BARAUNI-GWL</option>
+																			<option value="14115-ALD HW  EXPRESS">14115-ALD HW  EXPRESS</option>
+																			<option value="14227-VARUNA  EXPRESS">14227-VARUNA  EXPRESS</option>
+																			<option value="14611-GCT-SVDK  EXPRESS">14611-GCT-SVDK  EXPRESS</option>
+																			<option value="15026-ANVR-MAU- EXPRESS">15026-ANVR-MAU- EXPRESS</option>
+																			<option value="12183-BPL-PBH SUF">12183-BPL-PBH SUF</option>
+																			<option value="12327-UPASANA  EXPRESS">12327-UPASANA  EXPRESS</option>
+																			<option value="64231-BBK-LKO MEMU">64231-BBK-LKO MEMU</option>
+																			<option value="15280-POORBIYA  EXPRESS">15280-POORBIYA  EXPRESS</option>
+																			<option value="15933-DBRG-ASR  EXPRESS">15933-DBRG-ASR  EXPRESS</option>
+																			<option value="13307-GANGASUTLEJ">13307-GANGASUTLEJ</option>
+																			<option value="12391-SHRAMJEEVI E">12391-SHRAMJEEVI E</option>
+																			<option value="12572-ANVT-GKP HAM">12572-ANVT-GKP HAM</option>
+																			<option value="19269-PBR MOTIHARI">19269-PBR MOTIHARI</option>
+																			<option value="22121-LTT-LKO AC S">22121-LTT-LKO AC S</option>
+																			<option value="54256-LKO-BSB PASS">54256-LKO-BSB PASS</option>
+																			<option value="24228-VARUNA  EXPRESS">24228-VARUNA  EXPRESS</option>
+																			<option value="13483-FARAKKA  EXPRESS">13483-FARAKKA  EXPRESS</option>
+																			<option value="14205-FD-DLI  EXPRESS">14205-FD-DLI  EXPRESS</option>
+																			<option value="14260-LKO-MGS EKAT">14260-LKO-MGS EKAT</option>
+																			<option value="14854-MARUDHAR  EXPRESS">14854-MARUDHAR  EXPRESS</option>
+																			<option value="15064-LTT-GKP  EXPRESS">15064-LTT-GKP  EXPRESS</option>
+																			<option value="12229-LUCKNOW MAIL">12229-LUCKNOW MAIL</option>
+																			<option value="12355-ARCHNA  EXPRESS">12355-ARCHNA  EXPRESS</option>
+																			<option value="64202-CNB-LKO MEMU">64202-CNB-LKO MEMU</option>
+																			<option value="64234-LKO-BBK MEMU">64234-LKO-BBK MEMU</option>
+																			<option value="15624-KYQ BGKT WEE">15624-KYQ BGKT WEE</option>
+																			<option value="13009-DOON EXPRESS">13009-DOON EXPRESS</option>
+																			<option value="12419-GOMTI  EXPRESS">12419-GOMTI  EXPRESS</option>
+																			<option value="12588-JAMMU GKP  EXPRESS">12588-JAMMU GKP  EXPRESS</option>
+																			<option value="19313-INDB RJPB  E">19313-INDB RJPB  E</option>
+																			<option value="22356-CDG - PPTA S">22356-CDG - PPTA S</option>
+																			<option value="54282-LKO-SLN PASS">54282-LKO-SLN PASS</option>
+																			<option value="24370-TRIVENI  EXPRESS">24370-TRIVENI  EXPRESS</option>
+																			<option value="14003-MLDT-NDLS  EXPRESS">14003-MLDT-NDLS  EXPRESS</option>
+																			<option value="14207-PADMAVAT  EXPRESS">14207-PADMAVAT  EXPRESS</option>
+																			<option value="14266-DDN BSB  EXPRESS">14266-DDN BSB  EXPRESS</option>
+																			<option value="14864-MARUDHAR  EXPRESS">14864-MARUDHAR  EXPRESS</option>
+																			<option value="15066-PNVL-GKP  EXPRESS">15066-PNVL-GKP  EXPRESS</option>
+																			<option value="12231-LKO - CDG  EXPRESS">12231-LKO - CDG  EXPRESS</option>
+																			<option value="12357-DURGIANA  EXPRESS">12357-DURGIANA  EXPRESS</option>
+																			<option value="22408-ANVT-BSB GAR">22408-ANVT-BSB GAR</option>
+																			<option value="64209-LKO-CNB MEMU">64209-LKO-CNB MEMU</option>
+																			<option value="15667-GADHIDHAM-KA">15667-GADHIDHAM-KA</option>
+																			<option value="13152-SEALDAH  EXPRESS">13152-SEALDAH  EXPRESS</option>
+																			<option value="19168-SABARMATI  EXPRESS">19168-SABARMATI  EXPRESS</option>
+																			<option value="12540-LKO-YPR  EXPRESS">12540-LKO-YPR  EXPRESS</option>
+																			<option value="19404-SLN ADI  EXPRESS">19404-SLN ADI  EXPRESS</option>
+																			<option value="54231-FD-LKO PASSE">54231-FD-LKO PASSE</option>
+																			<option value="54333-BSB-LKO PASS">54333-BSB-LKO PASS</option>
+																			<option value="11080-GKP-LTT  EXPRESS">11080-GKP-LTT  EXPRESS</option>
+																			<option value="14016-SADHBHAWNA E">14016-SADHBHAWNA E</option>
+																			<option value="14220-LKO-BSB  EXPRESS">14220-LKO-BSB  EXPRESS</option>
+																			<option value="14523-MFP-UMB  EXPRESS">14523-MFP-UMB  EXPRESS</option>
+																			<option value="422-SVDK-LKO FTR">422-SVDK-LKO FTR</option>
+																			<option value="15023-GKP-YPR- EXPRESS">15023-GKP-YPR- EXPRESS</option>
+																			<option value="54201-LKO-RBD PASS">54201-LKO-RBD PASS</option>
+																			<option value="12318-AKAL TAKHAT">12318-AKAL TAKHAT</option>
+																			<option value="64204-CNB-LKO MEMU">64204-CNB-LKO MEMU</option>
+																			<option value="64236-CNB-BBK MEMU">64236-CNB-BBK MEMU</option>
+																			<option value="15636-DWARKA  EXPRESS">15636-DWARKA  EXPRESS</option>
+																			<option value="13049-AMRITSAR  EXPRESS">13049-AMRITSAR  EXPRESS</option>
+																			<option value="12596-ANVT-GKP HAM">12596-ANVT-GKP HAM</option>
+																			<option value="19053-ST MFP  EXPRESS">19053-ST MFP  EXPRESS</option>
+																			<option value="12435-DBRT - NDLS">12435-DBRT - NDLS</option>
+																			<option value="51814-LKO-JHS PASS">51814-LKO-JHS PASS</option>
+																			<option value="19321-INDB RJPB  EXPRESS">19321-INDB RJPB  EXPRESS</option>
+																			<option value="54284-LKO-SLN">54284-LKO-SLN</option>
+																			<option value="12876-NDLS-PURI NE">12876-NDLS-PURI NE</option>
+																			<option value="14007-SADBHAWNA  EXPRESS">14007-SADBHAWNA  EXPRESS</option>
+																			<option value="14209-BDL-LKO  INTERCITY EXPRESS">14209-BDL-LKO  INTERCITY EXPRESS</option>
+																			<option value="14308-BE-LKO EXP.">14308-BE-LKO EXP.</option>
+																			<option value="14866-MARUDHAR  EXPRESS">14866-MARUDHAR  EXPRESS</option>
+																			<option value="15068-BDTS-GKP  EXPRESS">15068-BDTS-GKP  EXPRESS</option>
+																			<option value="12235-GHY-NDLS RAJ">12235-GHY-NDLS RAJ</option>
+																			<option value="74201-PBH-LKO DMU">74201-PBH-LKO DMU</option>
+																			<option value="64207-LKO-CNB MEMU">64207-LKO-CNB MEMU</option>
+																			<option value="15653-AMARNATH  EXPRESS">15653-AMARNATH  EXPRESS</option>
+																			<option value="13120-DLI SDAH  EXPRESS">13120-DLI SDAH  EXPRESS</option>
+																			<option value="19166-SABARMATI  EXPRESS">19166-SABARMATI  EXPRESS</option>
+																			<option value="12524-NDLS-NJP BI-">12524-NDLS-NJP BI-</option>
+																			<option value="19402-LKO ADI  EXPRESS">19402-LKO ADI  EXPRESS</option>
+																			<option value="54331-LUCKNOW BALA">54331-LUCKNOW BALA</option>
+																			<option value="11016-KUSHINAGAR E">11016-KUSHINAGAR E</option>
+																			<option value="14014-SADBHAWANA E">14014-SADBHAWANA E</option>
+																			<option value="14216-GANGA GOMTI">14216-GANGA GOMTI</option>
+																			<option value="14511-NAUCHANDI  EXPRESS">14511-NAUCHANDI  EXPRESS</option>
+																			<option value="401-BSB BHARATDA">401-BSB BHARATDA</option>
+																			<option value="15005-GKP DDN  EXPRESS">15005-GKP DDN  EXPRESS</option>
+																			<option value="15115-LOKNAYAK  EXPRESS">15115-LOKNAYAK  EXPRESS</option>
+																			<option value="12238-JAT-BSB EXP.">12238-JAT-BSB EXP.</option>
+																			<option value="22407-BSB-ANVT GAR">22407-BSB-ANVT GAR</option>
+																			<option value="64208-CNB-LKO MEMU">64208-CNB-LKO MEMU</option>
+																			<option value="15654-JAMMU GHY  EXPRESS">15654-JAMMU GHY  EXPRESS</option>
+																			<option value="13151-JAMMU TAWI E">13151-JAMMU TAWI E</option>
+																			<option value="19167-SABARMATI  EXPRESS">19167-SABARMATI  EXPRESS</option>
+																			<option value="12539-YPR-LKO  EXPRESS">12539-YPR-LKO  EXPRESS</option>
+																			<option value="19403-SULTANPUR  EXPRESS">19403-SULTANPUR  EXPRESS</option>
+																			<option value="54332-PASSENGER">54332-PASSENGER</option>
+																			<option value="11079-LTT-GKP  EXPRESS">11079-LTT-GKP  EXPRESS</option>
+																			<option value="14015-SADBHAWANA E">14015-SADBHAWANA E</option>
+																			<option value="14219-BSB-LKO  EXPRESS">14219-BSB-LKO  EXPRESS</option>
+																			<option value="14512-NAUCHANDI  EXPRESS">14512-NAUCHANDI  EXPRESS</option>
+																			<option value="421-LKO-SVDK FTR">421-LKO-SVDK FTR</option>
+																			<option value="15006-DDN GKP  EXPRESS">15006-DDN GKP  EXPRESS</option>
+																			<option value="15116-LOKNAYAK  EXPRESS">15116-LOKNAYAK  EXPRESS</option>
+																			<option value="12317-AKAL TAKHT E">12317-AKAL TAKHT E</option>
+																			<option value="64206-CNB-LKO MEMU">64206-CNB-LKO MEMU</option>
+																			<option value="64282-LKO-SLN MEMU">64282-LKO-SLN MEMU</option>
+																			<option value="15652-GHY-JAT LOHI">15652-GHY-JAT LOHI</option>
+																			<option value="13119-SDAH DLI   EXPRESS">13119-SDAH DLI   EXPRESS</option>
+																			<option value="12598-CSMT-GKP -WE">12598-CSMT-GKP -WE</option>
+																			<option value="19165-SABARMATI  EXPRESS">19165-SABARMATI  EXPRESS</option>
+																			<option value="12523-NJP-NDLS BI-">12523-NJP-NDLS BI-</option>
+																			<option value="19401-ADI LUCKNOW">19401-ADI LUCKNOW</option>
+																			<option value="54294-LKO-PBH PASS">54294-LKO-PBH PASS</option>
+																			<option value="13006-ASR HWH MAIL">13006-ASR HWH MAIL</option>
+																			<option value="11015-KUSHINAGAR E">11015-KUSHINAGAR E</option>
+																			<option value="14013-SADBHAWANA E">14013-SADBHAWANA E</option>
+																			<option value="14215-GANGA GOMTI">14215-GANGA GOMTI</option>
+																			<option value="14370-TRIVENI  EXPRESS">14370-TRIVENI  EXPRESS</option>
+																			<option value="15002-DDN MFP  EXPRESS">15002-DDN MFP  EXPRESS</option>
+																			<option value="15098-AMARNATH  EXPRESS">15098-AMARNATH  EXPRESS</option>
+																			<option value="12237-BSB-JAT EXP.">12237-BSB-JAT EXP.</option>
+																			<option value="22683-YPR-LKO WEEK">22683-YPR-LKO WEEK</option>
+																			<option value="64221-LKO-HRI-LKO">64221-LKO-HRI-LKO</option>
+																			<option value="15270-ADI-MFP JANS">15270-ADI-MFP JANS</option>
+																			<option value="15904-CDG-DBRG  EXPRESS">15904-CDG-DBRG  EXPRESS</option>
+																			<option value="13257-JAN SADHARAN">13257-JAN SADHARAN</option>
+																			<option value="12371-HWH JSM SF E">12371-HWH JSM SF E</option>
+																			<option value="12565-BIHAR SAMPAR">12565-BIHAR SAMPAR</option>
+																			<option value="19709-KAVI GURU  EXPRESS">19709-KAVI GURU  EXPRESS</option>
+																			<option value="54254-LKO-PYG PASS">54254-LKO-PYG PASS</option>
+																			<option value="13429-MLDT-ANVT WK">13429-MLDT-ANVT WK</option>
+																			<option value="14203-BSB LKO  INTERCITY EXPRESS">14203-BSB LKO  INTERCITY EXPRESS</option>
+																			<option value="14257-K V  EXPRESS">14257-K V  EXPRESS</option>
+																			<option value="14674-SHAHEED  EXPRESS">14674-SHAHEED  EXPRESS</option>
+																			<option value="15058-ANVT-GKP  EXPRESS">15058-ANVT-GKP  EXPRESS</option>
+																			<option value="12211-MFP-ANVT GAR">12211-MFP-ANVT GAR</option>
+																			<option value="12353-HWH LKU  EXPRESS">12353-HWH LKU  EXPRESS</option>
+																			<option value="18103-JALLIANWALA">18103-JALLIANWALA</option>
+																	</select><br><br>
+					
+
+
+							
+								<label class="text-danger">Passenger Name *</label>
+								<input name="name" maxlength="50" required="required" class="form-control" type="text" id="passenger_name" placeholder="Enter Passenger Name">
+							<br><br>
+							
+								<label class="text-danger">Mobile *</label>
+								<input name="mobile" maxlength="10" required="required" class="form-control" type="text" id="passenger_mobile" placeholder="Enter Passenger Mobile">
+
+							<br><br>
+									
+							
+
+								<label class="text-danger">Railway Station *</label>
+								<select class="js-example-basic-single form-control" name="station" id="railway_station">
+									<option>Select Railway Station</option> 
+																			<option value="DDU">Deen Dayal Upadhayay</option>
+																			<option value="BSB">Varanasi Junction railway station</option>
+																			<option value="MUV">Manduadih railway station</option>
+																			<option value="BCY">city railway station</option>
+																	</select><br><br>
+								
+																	
+								<label class="text_danger">Date*</label>
+								<input type="Date" name=date required>	
+								
+								<label class="text_danger">time*</label>
+								<input type="time" name=time required>	
+								
+							
+							
+
+													
+
+							<br><br>
+								<label class="text-danger">Number Of Bags *</label>
+								<select name="bags" required="required" class="form-control" id="total_bags" value="">
+									<option value="1"> 1 </option>
+									<option value="2"> 2 </option>
+									<option value="3"> 3 </option>
+								</select>
+								
+							
+
+							<br><br>
+								<label class="text-danger">Coach Number *</label>
+								<input name="coach" maxlength="10" required="required" class="form-control" type="text" id="coach_number" placeholder="Enter Coach Number">
+							
+                            <br><br>
+							
+								<label class="text-danger">Seat Number *</label>
+								<input name="seat" maxlength="10" required="required" class="form-control" type="text" id="seat_number" placeholder="Enter Seat Number">
+							     
+								<label class="text-danger">Email *</label>
+								<input name="email"  required="required" class="form-control" type="text" id="email" placeholder="Enter Email">
+        
+        
+
+	
+                <br><br>
+                                    
+									<input type="submit" name="book" id="submit" class="btn-success" value="submit"/>
+							
+     
+         
+
+</form>
+</body>
+</html>
